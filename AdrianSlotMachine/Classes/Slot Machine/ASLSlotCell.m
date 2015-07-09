@@ -4,8 +4,7 @@
 
 #import "ASLSlotCell.h"
 
-CGFloat const kCellPadding = 0;
-CGFloat const kCellHeight = 75;
+CGFloat const kSlotCellHeight = 75;
 
 @interface ASLSlotCell ()
 
@@ -55,14 +54,13 @@ CGFloat const kCellHeight = 75;
 - (void)setupConstraints {
     NSDictionary *views = NSDictionaryOfVariableBindings(_slotImageView);
     NSDictionary *metrics = @{
-            @"kCellPadding": @(kCellPadding),
-            @"kCellHeight": @(kCellHeight)
+            @"kCellHeight": @(kSlotCellHeight)
     };
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-kCellPadding-[_slotImageView]-kCellPadding-|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_slotImageView]|"
                                                                  options:NSLayoutFormatDirectionLeadingToTrailing
                                                                  metrics:metrics
                                                                    views:views]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-kCellPadding-[_slotImageView(kCellHeight)]-kCellPadding-|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_slotImageView(kCellHeight)]|"
                                                                  options:NSLayoutFormatDirectionLeadingToTrailing
                                                                  metrics:metrics
                                                                    views:views]];

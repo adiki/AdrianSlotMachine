@@ -46,6 +46,11 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self scrollSlotsToRandomItems];
+}
+
 #pragma mark - Private Properties
 
 - (ASLSlotDataSource *)slotDataSource {
@@ -80,8 +85,9 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
     slot.backgroundColor = [UIColor clearColor];
     slot.separatorStyle = UITableViewCellSeparatorStyleNone;
     slot.rowHeight = UITableViewAutomaticDimension;
-    slot.estimatedRowHeight = 90;
+    slot.estimatedRowHeight = kSlotCellHeight;
     slot.showsVerticalScrollIndicator = NO;
+    slot.allowsSelection = NO;
     slot.dataSource = self.slotDataSource;
     [slot registerClass:[ASLSlotCell class] forCellReuseIdentifier:kSlotMachineCellIdentifier];
     [_slotsContainer addSubview:slot];
@@ -166,6 +172,26 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
                                                      attribute:NSLayoutAttributeCenterY
                                                     multiplier:1.0f
                                                       constant:0.0f]];
+}
+
+- (void)scrollSlotsToRandomItems {
+    CGFloat halfOfSlotHeight = [self halfOfSlotHeight];
+
+    NSUInteger itemNumber = arc4random() % 3 + 1;
+    CGFloat offsetY = kSlotCellHeight * itemNumber + kSlotCellHeight / 2 - halfOfSlotHeight;
+    self.firstSlot.contentOffset = CGPointMake(self.firstSlot.contentOffset.x, offsetY);
+
+    itemNumber = arc4random() % 3 + 1;
+    offsetY = kSlotCellHeight * itemNumber + kSlotCellHeight / 2 - halfOfSlotHeight;
+    self.secondSlot.contentOffset = CGPointMake(self.secondSlot.contentOffset.x, offsetY);
+
+    itemNumber = arc4random() % 3 + 1;
+    offsetY = kSlotCellHeight * itemNumber + kSlotCellHeight / 2 - halfOfSlotHeight;
+    self.thirdSlot.contentOffset = CGPointMake(self.thirdSlot.contentOffset.x, offsetY);
+}
+
+- (CGFloat)halfOfSlotHeight {
+    return self.slotsContainer.frame.size.height / 2 - kSlotsContainerBorderWidth;
 }
 
 #pragma mark - Protocols

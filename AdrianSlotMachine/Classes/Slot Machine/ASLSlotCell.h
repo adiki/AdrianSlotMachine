@@ -4,6 +4,7 @@
 
 #import <UIKit/UIKit.h>
 
+extern CGFloat const kSlotCellHeight;
 
 @interface ASLSlotCell : UITableViewCell
 
