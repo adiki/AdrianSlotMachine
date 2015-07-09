@@ -7,7 +7,6 @@
 #import "UIColor+ASLSlotMachine.h"
 #import "ASLSlotDataSource.h"
 #import "NSMutableArray+Shuffle.h"
-#import "ASLSlotView.h"
 
 CGFloat const kSlotsContainerMargin = 4;
 CGFloat const kSlotsContainerBorderWidth = 6;
@@ -37,7 +36,12 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 }
 
 - (void)spinSlotMachine {
-    [self.firstSlot spinSlot];
+    NSUInteger itemNumber = 50 + arc4random() % 3;
+    [self.firstSlot spinSlotToItemNumber:itemNumber animated:YES];
+    itemNumber = 71 + arc4random() % 3;
+    [self.secondSlot spinSlotToItemNumber:itemNumber animated:YES];
+    itemNumber = 92 + arc4random() % 3;
+    [self.thirdSlot spinSlotToItemNumber:itemNumber animated:YES];
 }
 
 #pragma mark - IBActions
@@ -85,7 +89,8 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 }
 
 - (ASLSlotView *)createAndAddSlotView {
-    ASLSlotView *slotView = [[ASLSlotView alloc] initWithDataSource:self.slotDataSource];
+    ASLSlotView *slotView = [[ASLSlotView alloc] init];
+    slotView.slotDataSource = self.slotDataSource;
     slotView.translatesAutoresizingMaskIntoConstraints = NO;
     [_slotsContainer addSubview:slotView];
     return slotView;
@@ -174,9 +179,9 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 - (void)setupSlotsToInitialRandomItemNumbers {
     NSMutableArray *itemNumbers = [@[@1, @2, @3] mutableCopy];
     [itemNumbers shuffle];
-    [self.firstSlot spinSlotToItemNumber:[itemNumbers[0] unsignedIntegerValue]];
-    [self.secondSlot spinSlotToItemNumber:[itemNumbers[1] unsignedIntegerValue]];
-    [self.thirdSlot spinSlotToItemNumber:[itemNumbers[2] unsignedIntegerValue]];
+    [self.firstSlot spinSlotToItemNumber:[itemNumbers[0] unsignedIntegerValue] animated:NO];
+    [self.secondSlot spinSlotToItemNumber:[itemNumbers[1] unsignedIntegerValue] animated:NO];
+    [self.thirdSlot spinSlotToItemNumber:[itemNumbers[2] unsignedIntegerValue] animated:NO];
 }
 
 #pragma mark - Protocols

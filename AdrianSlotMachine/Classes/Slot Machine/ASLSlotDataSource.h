@@ -3,6 +3,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASLSlotView.h"
 
 extern NSString *const kSlotMachineCellIdentifier;
 
@@ -12,5 +13,8 @@ typedef NS_ENUM(NSInteger, ASLFruitType) {
     ASLFruitTypeSkeleton,
 };
 
-@interface ASLSlotDataSource : NSObject <UITableViewDataSource>
+
+
+@interface ASLSlotDataSource : NSObject <ASLSlotViewDataSource>
+
 @end

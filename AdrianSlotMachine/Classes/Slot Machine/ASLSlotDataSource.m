@@ -45,7 +45,7 @@ NSString *const kSlotMachineCellIdentifier = @"kSlotMachineCellIdentifier";
     }
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - ASLSlotViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 128;
@@ -58,6 +58,11 @@ NSString *const kSlotMachineCellIdentifier = @"kSlotMachineCellIdentifier";
     [slotMachineCell configureWithImageName:[self imageNameForFruitType:fruitType]];
     return slotMachineCell;
 }
+
+- (NSInteger)differentFruitTypesCount {
+    return self.fruitTypes.count;
+}
+
 
 #pragma mark - Notifications
 

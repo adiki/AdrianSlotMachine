@@ -17,24 +17,27 @@
 @implementation ASLSlotView
 
 #pragma mark - Public Properties
+
+- (void)setSlotDataSource:(id <ASLSlotViewDataSource>)slotDataSource {
+    self.dataSource = slotDataSource;
+    _slotDataSource = slotDataSource;
+}
+
 #pragma mark - Public Class Methods
 #pragma mark - Public Instance Methods
 
-- (void)spinSlotToItemNumber:(NSUInteger)itemNumber {
-    self.currentItemNumber = itemNumber;
-    [self scrollSlotToItemNumber:itemNumber animated:NO];
-    [self makeNeighboursFadedForItemNumber:itemNumber];
-}
-
-- (void)spinSlot {
-    self.targetItemNumber = 100 + arc4random() % 28;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(scrollSlot) userInfo:nil repeats:YES];
+- (void)spinSlotToItemNumber:(NSUInteger)itemNumber animated:(BOOL)animated {
+    if (animated) {
+        [self spinSlotAnimatedToItemNumber:itemNumber];
+    } else {
+        [self spinSlotWithoutAnimationToItemNumber:itemNumber];
+    }
 }
 
 #pragma mark - IBActions
 #pragma mark - Overridden
 
-- (instancetype)initWithDataSource:(id <UITableViewDataSource>)dataSource {
+- (instancetype)init {
     self = [super initWithFrame:CGRectZero];
 
     if (self) {
@@ -45,7 +48,6 @@
         self.showsVerticalScrollIndicator = NO;
         self.allowsSelection = NO;
         self.scrollEnabled = NO;
-        self.dataSource = dataSource;
         [self registerClass:[ASLSlotCell class] forCellReuseIdentifier:kSlotMachineCellIdentifier];
     }
 
@@ -56,18 +58,26 @@
 #pragma mark - Private Class Methods
 #pragma mark - Private Instance Methods
 
+- (void)spinSlotWithoutAnimationToItemNumber:(NSUInteger)itemNumber {
+    self.currentItemNumber = itemNumber;
+    [self scrollSlotToItemNumber:itemNumber animated:NO];
+    [self makeNeighboursFadedForItemNumber:itemNumber];
+}
+
+- (void)spinSlotAnimatedToItemNumber:(NSUInteger)itemNumber {
+    if ([self.timer isValid]) {
+        return;
+    }
+
+    self.targetItemNumber = itemNumber;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(scrollSlotAnimated) userInfo:nil repeats:YES];
+}
+
 - (CGFloat)halfOfSlotHeight {
     return self.frame.size.height / 2;
 }
 
-- (void)makeNeighboursFadedForItemNumber:(NSUInteger)itemNumber {
-    ASLSlotCell *slotCell = (ASLSlotCell *) [self cellForRowAtIndexPath:[NSIndexPath indexPathForItem:itemNumber - 1 inSection:0]];
-    [slotCell makeFadedAnimated:NO];
-    slotCell = (ASLSlotCell *) [self cellForRowAtIndexPath:[NSIndexPath indexPathForItem:itemNumber + 1 inSection:0]];
-    [slotCell makeFadedAnimated:NO];
-}
-
-- (void)scrollSlot {
+- (void)scrollSlotAnimated {
     self.currentItemNumber += 2;
     self.currentItemNumber = MIN(self.currentItemNumber, self.targetItemNumber);
     [self scrollSlotToItemNumber:self.currentItemNumber animated:YES];
@@ -84,9 +94,35 @@
         self.contentOffset = contentOffset;
         return;
     }
-    [UIView animateWithDuration:0.1 animations:^{
-        [self setContentOffset:contentOffset animated: NO];
-    }];
+
+    void (^animations)() = ^{
+        [self setContentOffset:contentOffset animated:NO];
+    };
+    
+    if (itemNumber != self.targetItemNumber) {
+        [UIView animateWithDuration:0.1
+                         animations:animations];
+        return;
+    }
+
+    [UIView animateWithDuration:1
+                          delay:0
+         usingSpringWithDamping:0.33
+          initialSpringVelocity:10
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:animations
+                     completion:^(BOOL finished) {
+                         NSUInteger theSameBeginItemNumber = self.targetItemNumber % [self.slotDataSource differentFruitTypesCount];
+                         theSameBeginItemNumber = theSameBeginItemNumber == 0 ? 3 : theSameBeginItemNumber;
+                         [self spinSlotWithoutAnimationToItemNumber:theSameBeginItemNumber];
+                     }];
+}
+
+- (void)makeNeighboursFadedForItemNumber:(NSUInteger)itemNumber {
+    ASLSlotCell *slotCell = (ASLSlotCell *) [self cellForRowAtIndexPath:[NSIndexPath indexPathForItem:itemNumber - 1 inSection:0]];
+    [slotCell makeFadedAnimated:NO];
+    slotCell = (ASLSlotCell *) [self cellForRowAtIndexPath:[NSIndexPath indexPathForItem:itemNumber + 1 inSection:0]];
+    [slotCell makeFadedAnimated:NO];
 }
 
 - (CGFloat)offsetYForItemNumber:(NSUInteger)itemNumber {

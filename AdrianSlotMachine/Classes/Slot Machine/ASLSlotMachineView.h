@@ -5,6 +5,7 @@
 #import <UIKit/UIKit.h>
 
 
+
 @interface ASLSlotMachineView : UIView
 
 - (void)setupSlotMachine;
