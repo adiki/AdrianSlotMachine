@@ -8,7 +8,7 @@
 extern NSString *const kSlotMachineCellIdentifier;
 
 
-@interface ASLSlotDataSource : NSObject <ASLSlotViewDataSource>
+@interface ASLSlotDataSource : NSObject <UITableViewDataSource>
 
 - (instancetype)initWithCellsCount:(NSInteger)cellsCount fruitTypes:(NSArray *)fruitTypes;
 

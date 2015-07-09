@@ -5,8 +5,8 @@
 
 #import "ASLSlotView.h"
 #import "ASLSlotCell.h"
-#import "ASLSlotDataSource.h"
 #import "ASLFruits.h"
+#import "ASLSlotDataSource.h"
 
 
 @interface ASLSlotView ()
@@ -18,17 +18,11 @@
 @implementation ASLSlotView
 
 #pragma mark - Public Properties
-
-- (void)setSlotDataSource:(id <ASLSlotViewDataSource>)slotDataSource {
-    self.dataSource = slotDataSource;
-    _slotDataSource = slotDataSource;
-}
-
 #pragma mark - Public Class Methods
 #pragma mark - Public Instance Methods
 
 - (void)spinSlotToItemNumber:(NSUInteger)itemNumber animated:(BOOL)animated {
-    if (self.slotDataSource == nil) {
+    if (self.dataSource == nil) {
         return;
     }
 
@@ -86,10 +80,6 @@
     self.currentItemNumber += 2;
     self.currentItemNumber = MIN(self.currentItemNumber, self.targetItemNumber);
     [self scrollSlotToItemNumber:self.currentItemNumber animated:YES];
-    if (self.currentItemNumber == self.targetItemNumber) {
-        [self.timer invalidate];
-        [self makeNeighboursFadedForItemNumber:self.currentItemNumber];
-    }
 }
 
 - (void)scrollSlotToItemNumber:(NSUInteger)itemNumber animated:(BOOL)animated {
@@ -120,7 +110,13 @@
                          NSUInteger theSameBeginItemNumber = self.targetItemNumber % [ASLFruits fruitTypes].count;
                          theSameBeginItemNumber = theSameBeginItemNumber == 0 ? 3 : theSameBeginItemNumber;
                          [self spinSlotWithoutAnimationToItemNumber:theSameBeginItemNumber];
+                         if ([self.delegate conformsToProtocol:@protocol(ASLSlotViewDelegate)]) {
+                             [((id <ASLSlotViewDelegate>) self.delegate) slotViewDidFinishSpinning:self];
+                         }
                      }];
+
+    [self.timer invalidate];
+    [self makeNeighboursFadedForItemNumber:self.currentItemNumber];
 }
 
 - (void)makeNeighboursFadedForItemNumber:(NSUInteger)itemNumber {

@@ -13,7 +13,7 @@ CGFloat const kSlotsContainerBorderWidth = 6;
 CGFloat const kTriangleViewHeight = 32;
 CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 
-@interface ASLSlotMachineView ()
+@interface ASLSlotMachineView () <ASLSlotViewDelegate>
 
 @property(nonatomic, strong) UIView *slotsContainer;
 @property(nonatomic, strong) ASLSlotView *firstSlot;
@@ -21,42 +21,22 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 @property(nonatomic, strong) ASLSlotView *thirdSlot;
 @property(nonatomic, strong) ASLTriangleView *leftTriangleView;
 @property(nonatomic, strong) ASLTriangleView *rightTriangleView;
+@property(nonatomic, copy) void (^completion)();
 
 @end
 
 @implementation ASLSlotMachineView
 
 #pragma mark - Public Properties
-
-- (void)setSlotDataSource:(id <ASLSlotViewDataSource>)slotDataSource {
-    _slotDataSource = slotDataSource;
-    self.firstSlot.slotDataSource = slotDataSource;
-    self.secondSlot.slotDataSource = slotDataSource;
-    self.thirdSlot.slotDataSource = slotDataSource;
-}
-
 #pragma mark - Public Class Methods
 #pragma mark - Public Instance Methods
 
-- (void)setupSlotMachine {
-    [self setupSlotsToInitialRandomItemNumbers];
-}
-
-- (void)spinSlotMachineWithResult:(NSArray *)result {
-    [self.firstSlot spinSlotToItemNumber:[result[0] unsignedIntegerValue] animated:YES];
-    [self.secondSlot spinSlotToItemNumber:[result[1] unsignedIntegerValue] animated:YES];
-    [self.thirdSlot spinSlotToItemNumber:[result[2] unsignedIntegerValue] animated:YES];
-}
-
-#pragma mark - IBActions
-#pragma mark - Overridden
-
-- (instancetype)init {
+- (instancetype)initWithSlotDataSource:(ASLSlotDataSource *)slotDataSource {
     self = [super initWithFrame:CGRectZero];
 
     if (self) {
         [self setupSlotsContainer];
-        [self setupSlots];
+        [self setupSlotsWithSlotDataSource:slotDataSource];
         [self setupTriangles];
         [self setupConstraints];
     }
@@ -64,6 +44,19 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
     return self;
 }
 
+- (void)setupSlotMachine {
+    [self setupSlotsToInitialRandomItemNumbers];
+}
+
+- (void)spinSlotMachineWithResult:(NSArray *)result completion:(void (^)())completion {
+    [self.firstSlot spinSlotToItemNumber:[result[0] unsignedIntegerValue] animated:YES];
+    [self.secondSlot spinSlotToItemNumber:[result[1] unsignedIntegerValue] animated:YES];
+    [self.thirdSlot spinSlotToItemNumber:[result[2] unsignedIntegerValue] animated:YES];
+    self.completion = completion;
+}
+
+#pragma mark - IBActions
+#pragma mark - Overridden
 #pragma mark - Private Properties
 #pragma mark - Private Class Methods
 #pragma mark - Private Instance Methods
@@ -78,15 +71,16 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
     [self addSubview:_slotsContainer];
 }
 
-- (void)setupSlots {
-    _firstSlot = [self createAndAddSlotView];
-    _secondSlot = [self createAndAddSlotView];
-    _thirdSlot = [self createAndAddSlotView];
+- (void)setupSlotsWithSlotDataSource:(ASLSlotDataSource *)slotDataSource {
+    _firstSlot = [self createAndAddSlotViewWithSlotDataSource:slotDataSource];
+    _secondSlot = [self createAndAddSlotViewWithSlotDataSource:slotDataSource];
+    _thirdSlot = [self createAndAddSlotViewWithSlotDataSource:slotDataSource];
 }
 
-- (ASLSlotView *)createAndAddSlotView {
+- (ASLSlotView *)createAndAddSlotViewWithSlotDataSource:(ASLSlotDataSource *)slotDataSource {
     ASLSlotView *slotView = [[ASLSlotView alloc] init];
-    slotView.slotDataSource = self.slotDataSource;
+    slotView.dataSource = slotDataSource;
+    slotView.delegate = self;
     slotView.translatesAutoresizingMaskIntoConstraints = NO;
     [_slotsContainer addSubview:slotView];
     return slotView;
@@ -180,7 +174,17 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
     [self.thirdSlot spinSlotToItemNumber:[itemNumbers[2] unsignedIntegerValue] animated:NO];
 }
 
-#pragma mark - Protocols
+#pragma mark - ASLSlotViewDelegate
+
+- (void)slotViewDidFinishSpinning:(ASLSlotView *)slotView {
+    if (slotView != self.thirdSlot || self.completion == nil) {
+        return;
+    }
+    self.completion();
+    self.completion = nil;
+}
+
+
 #pragma mark - Notifications
 
 @end

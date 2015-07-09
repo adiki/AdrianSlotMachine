@@ -21,6 +21,6 @@
 
 - (void)setupSlotMachine;
 - (void)setSpinButtonEnabled:(BOOL)enabled;
-- (void)spinSlotMachineWithResult:(NSArray *)result;
+- (void)spinSlotMachineWithResult:(NSArray *)result completion:(void (^)())completion;
 
 @end

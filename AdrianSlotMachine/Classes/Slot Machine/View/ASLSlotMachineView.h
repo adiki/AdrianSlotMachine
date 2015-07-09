@@ -4,14 +4,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol ASLSlotViewDataSource;
+@class ASLSlotDataSource;
 
 
 @interface ASLSlotMachineView : UIView
 
-@property(nonatomic, weak) id <ASLSlotViewDataSource> slotDataSource;
-
+- (instancetype)initWithSlotDataSource:(ASLSlotDataSource *)slotDataSource;
 - (void)setupSlotMachine;
-- (void)spinSlotMachineWithResult:(NSArray *)result;
+- (void)spinSlotMachineWithResult:(NSArray *)result completion:(void (^)())completion;
 
 @end

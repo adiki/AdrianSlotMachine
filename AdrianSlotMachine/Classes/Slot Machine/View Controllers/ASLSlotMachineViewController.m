@@ -56,13 +56,15 @@
     return (ASLSlotMachineControllerView *) self.view;
 }
 
-
 #pragma mark - ASLSlotMachineControllerViewDelegate
 
 - (void)slotMachineControllerViewSpinButtonTapped:(ASLSlotMachineControllerView *)slotMachineControllerView {
     [self.slotMachineControllerView setSpinButtonEnabled:NO];
     NSArray *result = [self.slotItemNumbersGenerator generateSlotItemNumbers];
-    [self.slotMachineControllerView spinSlotMachineWithResult:result];
+    __weak typeof(self) weakSelf = self;
+    [self.slotMachineControllerView spinSlotMachineWithResult:result completion:^{
+        [weakSelf.slotMachineControllerView setSpinButtonEnabled:YES];
+    }];
 }
 
 #pragma mark - Notifications

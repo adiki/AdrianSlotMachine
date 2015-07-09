@@ -27,11 +27,11 @@
 
 - (void)setSpinButtonEnabled:(BOOL)enabled {
     self.spinButton.enabled = enabled;
-    self.spinButton.alpha = 0.5;
+    self.spinButton.alpha = enabled ? 1.0f : 0.5f;
 }
 
-- (void)spinSlotMachineWithResult:(NSArray *)result {
-    [self.slotMachineView spinSlotMachineWithResult:result];
+- (void)spinSlotMachineWithResult:(NSArray *)result completion:(void (^)())completion {
+    [self.slotMachineView spinSlotMachineWithResult:result completion:completion];
 }
 
 #pragma mark - IBActions
@@ -66,9 +66,8 @@
 }
 
 - (void)setupSlotMachineViewWithSlotDataSource:(ASLSlotDataSource *)slotDataSource {
-    _slotMachineView = [[ASLSlotMachineView alloc] init];
+    _slotMachineView = [[ASLSlotMachineView alloc] initWithSlotDataSource:slotDataSource];
     _slotMachineView.translatesAutoresizingMaskIntoConstraints = NO;
-    _slotMachineView.slotDataSource = slotDataSource;
     [_centerContainer addSubview:_slotMachineView];
 }
 

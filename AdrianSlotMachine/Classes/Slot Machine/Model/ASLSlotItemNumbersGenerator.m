@@ -23,9 +23,9 @@ NSInteger const kGenerationUpperRange = 90;
 
 - (NSArray *)generateSlotItemNumbers {
     NSInteger fruitsCount = [ASLFruits fruitTypes].count;
-    NSNumber *firstNumber = @(kGenerationUpperRange - fruitsCount - 2 * kDistanceParameter + 1 + arc4random() % fruitsCount);
-    NSNumber *secondNumber = @(kGenerationUpperRange - fruitsCount - kDistanceParameter + 1 + arc4random() % fruitsCount);
-    NSNumber *thirdNumber = @(kGenerationUpperRange - fruitsCount + 1 + arc4random() % fruitsCount);
+    NSNumber *firstNumber = @(kGenerationUpperRange - fruitsCount - 2 * kDistanceParameter + arc4random() % fruitsCount);
+    NSNumber *secondNumber = @(kGenerationUpperRange - fruitsCount - kDistanceParameter + arc4random() % fruitsCount);
+    NSNumber *thirdNumber = @(kGenerationUpperRange - fruitsCount + arc4random() % fruitsCount);
     return @[firstNumber, secondNumber, thirdNumber];
 }
 

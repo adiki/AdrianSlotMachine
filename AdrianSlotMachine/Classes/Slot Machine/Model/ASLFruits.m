@@ -12,7 +12,7 @@
 #pragma mark - Public Class Methods
 
 + (NSArray *)fruitTypes {
-    return @[@(ASLFruitTypeBurrito), @(ASLFruitTypeAvocado), @(ASLFruitTypeSkeleton)];;
+    return @[@(ASLFruitTypeBurrito), @(ASLFruitTypeAvocado), @(ASLFruitTypeSkeleton)];
 }
 
 + (NSString *)imageNameForFruitType:(ASLFruitType)fruitType {

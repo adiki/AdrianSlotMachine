@@ -6,16 +6,15 @@
 #import <UIKit/UIKit.h>
 
 @class ASLSlotDataSource;
+@class ASLSlotView;
 
-@protocol ASLSlotViewDataSource <UITableViewDataSource>
+@protocol ASLSlotViewDelegate <UITableViewDelegate>
 
-- (NSInteger)differentFruitTypesCount;
+- (void)slotViewDidFinishSpinning:(ASLSlotView *)slotView;
 
 @end
 
 @interface ASLSlotView : UITableView
-
-@property(nonatomic, weak) id <ASLSlotViewDataSource> slotDataSource;
 
 - (void)spinSlotToItemNumber:(NSUInteger)itemNumber animated:(BOOL)animated;
 
