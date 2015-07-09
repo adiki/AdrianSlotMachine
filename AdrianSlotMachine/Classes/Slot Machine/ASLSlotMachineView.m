@@ -10,7 +10,7 @@
 
 CGFloat const kSlotsContainerMargin = 4;
 CGFloat const kSlotsContainerBorderWidth = 6;
-CGFloat const kTriangleViewHeight = 36;
+CGFloat const kTriangleViewHeight = 32;
 CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 
 @interface ASLSlotMachineView ()
@@ -77,9 +77,12 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 - (UITableView *)createAndAddSlot {
     UITableView *slot = [[UITableView alloc] init];
     slot.translatesAutoresizingMaskIntoConstraints = NO;
+    slot.backgroundColor = [UIColor clearColor];
     slot.separatorStyle = UITableViewCellSeparatorStyleNone;
     slot.rowHeight = UITableViewAutomaticDimension;
-    slot.estimatedRowHeight = 75;
+    slot.estimatedRowHeight = 90;
+    slot.showsVerticalScrollIndicator = NO;
+    slot.dataSource = self.slotDataSource;
     [slot registerClass:[ASLSlotCell class] forCellReuseIdentifier:kSlotMachineCellIdentifier];
     [_slotsContainer addSubview:slot];
     return slot;
@@ -105,13 +108,14 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 - (void)setupSlotsContainerConstraints {
     NSDictionary *views = NSDictionaryOfVariableBindings(_firstSlot, _secondSlot, _thirdSlot);
     NSDictionary *metrics = @{
-            @"margin" : @(kSlotsContainerBorderWidth),
+            @"marginH" : @(kSlotsContainerBorderWidth + 12),
+            @"marginV" : @(kSlotsContainerBorderWidth),
     };
-    [_slotsContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_firstSlot][_secondSlot(_firstSlot)][_thirdSlot(_firstSlot)]-margin-|"
+    [_slotsContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-marginH-[_firstSlot]-2-[_secondSlot(_firstSlot)]-2-[_thirdSlot(_firstSlot)]-marginH-|"
                                                                  options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom
                                                                  metrics:metrics
                                                                    views:views]];
-    [_slotsContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-margin-[_firstSlot]-margin-|"
+    [_slotsContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-marginV-[_firstSlot]-marginV-|"
                                                                  options:NSLayoutFormatDirectionLeadingToTrailing
                                                                  metrics:metrics
                                                                    views:views]];

@@ -53,7 +53,7 @@
                                                                  options:NSLayoutFormatDirectionLeadingToTrailing
                                                                  metrics:nil
                                                                    views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_slotMachineView(141)]"
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_slotMachineView(150)]"
                                                                  options:NSLayoutFormatDirectionLeadingToTrailing
                                                                  metrics:nil
                                                                    views:views]];

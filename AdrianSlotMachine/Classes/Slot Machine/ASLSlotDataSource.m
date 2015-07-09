@@ -24,7 +24,7 @@ NSString *const kSlotMachineCellIdentifier = @"kSlotMachineCellIdentifier";
 
 - (NSArray *)imageNames {
     if (_imageNames == nil) {
-        _imageNames = @[@"fruittype-avocado", @"fruittype-burrito", @"fruittype-skeleton"];
+        _imageNames = @[@"fruittype-burrito", @"fruittype-avocado", @"fruittype-skeleton"];
     }
     return _imageNames;
 }

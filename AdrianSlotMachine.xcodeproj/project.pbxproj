@@ -116,11 +116,11 @@
 			isa = PBXGroup;
 			children = (
 				619BB28ED5157DA10F440E1A /* ASLSlotCell.h */,
-				615D1647DCAA7903B25F9659 /* ASLSlotDataSource.m */,
 				61A12B843F2FC5DCC7B6BE1C /* ASLSlotCell.m */,
-				61D8C1015160E251E90495BD /* ASLSlotMachineView.m */,
 				614CD69DF550B14CD2D2888A /* ASLSlotDataSource.h */,
+				615D1647DCAA7903B25F9659 /* ASLSlotDataSource.m */,
 				61465A0F6D685CBEE72DCCE3 /* ASLSlotMachineView.h */,
+				61D8C1015160E251E90495BD /* ASLSlotMachineView.m */,
 			);
 			path = "Slot Machine";
 			sourceTree = "<group>";

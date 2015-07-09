@@ -6,5 +6,7 @@
 
 
 @interface ASLSlotCell : UITableViewCell
+
 - (void)configureWithImageName:(NSString *)imageName;
+
 @end
