@@ -9,7 +9,7 @@ NSString *const kSlotMachineCellIdentifier = @"kSlotMachineCellIdentifier";
 
 @interface ASLSlotDataSource ()
 
-@property(nonatomic, strong) NSArray *imageNames;
+@property(nonatomic, strong) NSArray *fruitTypes;
 
 @end
 
@@ -22,25 +22,40 @@ NSString *const kSlotMachineCellIdentifier = @"kSlotMachineCellIdentifier";
 #pragma mark - Overridden
 #pragma mark - Private Properties
 
-- (NSArray *)imageNames {
-    if (_imageNames == nil) {
-        _imageNames = @[@"fruittype-burrito", @"fruittype-avocado", @"fruittype-skeleton"];
+- (NSArray *)fruitTypes {
+    if (_fruitTypes == nil) {
+        _fruitTypes = @[@(ASLFruitTypeBurrito), @(ASLFruitTypeAvocado), @(ASLFruitTypeSkeleton)];
     }
-    return _imageNames;
+    return _fruitTypes;
 }
 
 #pragma mark - Private Class Methods
 #pragma mark - Private Instance Methods
+
+- (NSString *)imageNameForFruitType:(ASLFruitType)fruitType {
+    switch (fruitType) {
+        case ASLFruitTypeBurrito:
+            return @"fruittype-burrito";
+        case ASLFruitTypeAvocado:
+            return @"fruittype-avocado";
+        case ASLFruitTypeSkeleton:
+            return @"fruittype-skeleton";
+        default:
+            [NSException raise:NSGenericException format:@"Unexpected ASLFruitType."];
+    }
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10000;
+    return 128;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ASLSlotCell *slotMachineCell = [tableView dequeueReusableCellWithIdentifier:kSlotMachineCellIdentifier];
-    NSUInteger imageIndex = indexPath.row % self.imageNames.count;
-    [slotMachineCell configureWithImageName:self.imageNames[imageIndex]];
+    NSUInteger fruitIndex = indexPath.row % self.fruitTypes.count;
+    ASLFruitType fruitType = (ASLFruitType) [self.fruitTypes[fruitIndex] unsignedIntegerValue];
+    [slotMachineCell configureWithImageName:[self imageNameForFruitType:fruitType]];
     return slotMachineCell;
 }
 

@@ -15,6 +15,7 @@
 		6180D04880DE05AFCB81395F /* ASLSlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A12B843F2FC5DCC7B6BE1C /* ASLSlotCell.m */; };
 		618E11FFAB5E964118CDA880 /* ASLTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A177B5801B6BBF16647C7 /* ASLTriangleView.m */; };
 		61902ACD0ED0814C15F8CADA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 611DA9120CDAAF333810E44C /* AppDelegate.m */; };
+		619CBA941F501ECAFDDA26F8 /* ASLSlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 611C0550EECAA93B004C2174 /* ASLSlotView.m */; };
 		61A5DF0147BD9A79D3B454F9 /* AdrianSlotMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A612BB49E12AD7BEA95E89 /* AdrianSlotMachineTests.m */; };
 		61CF8DA1C10E2EDA1CE66166 /* ASLSlotDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 615D1647DCAA7903B25F9659 /* ASLSlotDataSource.m */; };
 		61D0BBA2F44AE720AA4217DD /* ASLSlotMachineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D8C1015160E251E90495BD /* ASLSlotMachineView.m */; };
@@ -36,6 +37,7 @@
 		610190CC12FF4B74A5185A22 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		610BCCB0920C712F897A3637 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6116FB016EA2B61163151294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		611C0550EECAA93B004C2174 /* ASLSlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotView.m; sourceTree = "<group>"; };
 		611DA9120CDAAF333810E44C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		61465A0F6D685CBEE72DCCE3 /* ASLSlotMachineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineView.h; sourceTree = "<group>"; };
 		614A177B5801B6BBF16647C7 /* ASLTriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLTriangleView.m; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 		61A12B843F2FC5DCC7B6BE1C /* ASLSlotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotCell.m; sourceTree = "<group>"; };
 		61A612BB49E12AD7BEA95E89 /* AdrianSlotMachineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdrianSlotMachineTests.m; sourceTree = "<group>"; };
 		61A6520F05267BDF313B8C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		61AF6BD336EC0D28696D3D17 /* ASLSlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotView.h; sourceTree = "<group>"; };
 		61BDAE8D30B27962338052CA /* ASLSlotMachineControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineControllerView.m; sourceTree = "<group>"; };
 		61CAA8B461C713BD421A1F7D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		61D36F6D6AEFFA9542932041 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				615D1647DCAA7903B25F9659 /* ASLSlotDataSource.m */,
 				61465A0F6D685CBEE72DCCE3 /* ASLSlotMachineView.h */,
 				61D8C1015160E251E90495BD /* ASLSlotMachineView.m */,
+				611C0550EECAA93B004C2174 /* ASLSlotView.m */,
+				61AF6BD336EC0D28696D3D17 /* ASLSlotView.h */,
 			);
 			path = "Slot Machine";
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				617D070A9FF206C0B0126DDA /* UIColor+ASLSlotMachine.m in Sources */,
 				618E11FFAB5E964118CDA880 /* ASLTriangleView.m in Sources */,
 				613145C33B0124F191EA86DE /* NSMutableArray+Shuffle.m in Sources */,
+				619CBA941F501ECAFDDA26F8 /* ASLSlotView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,6 +40,7 @@
 
 - (void)slotMachineControllerViewSpinButtonTapped:(ASLSlotMachineControllerView *)slotMachineControllerView {
     [self.slotMachineControllerView setSpinButtonEnabled:NO];
+    [self.slotMachineControllerView spinSlotMachine];
 }
 
 #pragma mark - Notifications

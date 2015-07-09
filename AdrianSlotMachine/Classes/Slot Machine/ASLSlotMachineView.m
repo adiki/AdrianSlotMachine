@@ -6,8 +6,8 @@
 #import "ASLTriangleView.h"
 #import "UIColor+ASLSlotMachine.h"
 #import "ASLSlotDataSource.h"
-#import "ASLSlotCell.h"
 #import "NSMutableArray+Shuffle.h"
+#import "ASLSlotView.h"
 
 CGFloat const kSlotsContainerMargin = 4;
 CGFloat const kSlotsContainerBorderWidth = 6;
@@ -17,9 +17,9 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 @interface ASLSlotMachineView ()
 
 @property(nonatomic, strong) UIView *slotsContainer;
-@property(nonatomic, strong) UITableView *firstSlot;
-@property(nonatomic, strong) UITableView *secondSlot;
-@property(nonatomic, strong) UITableView *thirdSlot;
+@property(nonatomic, strong) ASLSlotView *firstSlot;
+@property(nonatomic, strong) ASLSlotView *secondSlot;
+@property(nonatomic, strong) ASLSlotView *thirdSlot;
 @property(nonatomic, strong) ASLSlotDataSource *slotDataSource;
 @property(nonatomic, strong) ASLTriangleView *leftTriangleView;
 @property(nonatomic, strong) ASLTriangleView *rightTriangleView;
@@ -33,13 +33,12 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 #pragma mark - Public Instance Methods
 
 - (void)setupSlotMachine {
-    [self setupSlotsToInitialRandomItems];
+    [self setupSlotsToInitialRandomItemNumbers];
 }
 
 - (void)spinSlotMachine {
-
+    [self.firstSlot spinSlot];
 }
-
 
 #pragma mark - IBActions
 #pragma mark - Overridden
@@ -80,24 +79,16 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 }
 
 - (void)setupSlots {
-    _firstSlot = [self createAndAddSlot];
-    _secondSlot = [self createAndAddSlot];
-    _thirdSlot = [self createAndAddSlot];
+    _firstSlot = [self createAndAddSlotView];
+    _secondSlot = [self createAndAddSlotView];
+    _thirdSlot = [self createAndAddSlotView];
 }
 
-- (UITableView *)createAndAddSlot {
-    UITableView *slot = [[UITableView alloc] init];
-    slot.translatesAutoresizingMaskIntoConstraints = NO;
-    slot.backgroundColor = [UIColor clearColor];
-    slot.separatorStyle = UITableViewCellSeparatorStyleNone;
-    slot.rowHeight = UITableViewAutomaticDimension;
-    slot.estimatedRowHeight = kSlotCellHeight;
-    slot.showsVerticalScrollIndicator = NO;
-    slot.allowsSelection = NO;
-    slot.dataSource = self.slotDataSource;
-    [slot registerClass:[ASLSlotCell class] forCellReuseIdentifier:kSlotMachineCellIdentifier];
-    [_slotsContainer addSubview:slot];
-    return slot;
+- (ASLSlotView *)createAndAddSlotView {
+    ASLSlotView *slotView = [[ASLSlotView alloc] initWithDataSource:self.slotDataSource];
+    slotView.translatesAutoresizingMaskIntoConstraints = NO;
+    [_slotsContainer addSubview:slotView];
+    return slotView;
 }
 
 - (void)setupTriangles {
@@ -180,32 +171,13 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
                                                       constant:0.0f]];
 }
 
-- (void)setupSlotsToInitialRandomItems {
+- (void)setupSlotsToInitialRandomItemNumbers {
     NSMutableArray *itemNumbers = [@[@1, @2, @3] mutableCopy];
     [itemNumbers shuffle];
-    [self scrollSlotToInitialRandomItem:self.firstSlot itemNumber:[itemNumbers[0] unsignedIntegerValue]];
-    [self scrollSlotToInitialRandomItem:self.secondSlot itemNumber:[itemNumbers[1] unsignedIntegerValue]];
-    [self scrollSlotToInitialRandomItem:self.thirdSlot itemNumber:[itemNumbers[2] unsignedIntegerValue]];
+    [self.firstSlot spinSlotToItemNumber:[itemNumbers[0] unsignedIntegerValue]];
+    [self.secondSlot spinSlotToItemNumber:[itemNumbers[1] unsignedIntegerValue]];
+    [self.thirdSlot spinSlotToItemNumber:[itemNumbers[2] unsignedIntegerValue]];
 }
-
-- (void)scrollSlotToInitialRandomItem:(UITableView *)slot itemNumber:(NSUInteger)itemNumber{
-    CGFloat halfOfSlotHeight = [self halfOfSlotHeight];;
-    CGFloat offsetY = kSlotCellHeight * itemNumber + kSlotCellHeight / 2 - halfOfSlotHeight;
-    slot.contentOffset = CGPointMake(slot.contentOffset.x, offsetY);
-    [self makeNeighboursFadedForSlot:slot itemNumber:itemNumber];
-}
-
-- (void)makeNeighboursFadedForSlot:(UITableView *)slot itemNumber:(NSUInteger)itemNumber {
-    ASLSlotCell *slotCell = (ASLSlotCell *) [slot cellForRowAtIndexPath:[NSIndexPath indexPathForItem:itemNumber - 1 inSection:0]];
-    [slotCell makeFadedAnimated:NO];
-    slotCell = (ASLSlotCell *) [slot cellForRowAtIndexPath:[NSIndexPath indexPathForItem:itemNumber + 1 inSection:0]];
-    [slotCell makeFadedAnimated:NO];
-}
-
-- (CGFloat)halfOfSlotHeight {
-    return self.slotsContainer.frame.size.height / 2 - kSlotsContainerBorderWidth;
-}
-
 
 #pragma mark - Protocols
 #pragma mark - Notifications

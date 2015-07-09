@@ -6,5 +6,11 @@
 
 extern NSString *const kSlotMachineCellIdentifier;
 
+typedef NS_ENUM(NSInteger, ASLFruitType) {
+    ASLFruitTypeBurrito,
+    ASLFruitTypeAvocado,
+    ASLFruitTypeSkeleton,
+};
+
 @interface ASLSlotDataSource : NSObject <UITableViewDataSource>
 @end

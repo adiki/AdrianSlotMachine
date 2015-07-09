@@ -29,6 +29,10 @@
     self.spinButton.alpha = 0.5;
 }
 
+- (void)spinSlotMachine {
+    [self.slotMachineView spinSlotMachine];
+}
+
 #pragma mark - IBActions
 #pragma mark - Overridden
 

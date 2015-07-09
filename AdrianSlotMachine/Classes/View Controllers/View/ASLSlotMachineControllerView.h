@@ -19,4 +19,5 @@
 - (void)setupSlotMachine;
 - (void)setSpinButtonEnabled:(BOOL)enabled;
 
+- (void)spinSlotMachine;
 @end
