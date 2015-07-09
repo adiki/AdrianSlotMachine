@@ -5,6 +5,7 @@
 #import <UIKit/UIKit.h>
 
 @class ASLSlotMachineControllerView;
+@class ASLSlotDataSource;
 
 @protocol ASLSlotMachineControllerViewDelegate
 
@@ -16,8 +17,10 @@
 
 @property(nonatomic, weak) id <ASLSlotMachineControllerViewDelegate> delegate;
 
+- (instancetype)initWithSlotDataSource:(ASLSlotDataSource *)slotDataSource;
+
 - (void)setupSlotMachine;
 - (void)setSpinButtonEnabled:(BOOL)enabled;
+- (void)spinSlotMachineWithResult:(NSArray *)result;
 
-- (void)spinSlotMachine;
 @end

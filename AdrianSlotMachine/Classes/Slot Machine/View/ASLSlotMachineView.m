@@ -19,7 +19,6 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 @property(nonatomic, strong) ASLSlotView *firstSlot;
 @property(nonatomic, strong) ASLSlotView *secondSlot;
 @property(nonatomic, strong) ASLSlotView *thirdSlot;
-@property(nonatomic, strong) ASLSlotDataSource *slotDataSource;
 @property(nonatomic, strong) ASLTriangleView *leftTriangleView;
 @property(nonatomic, strong) ASLTriangleView *rightTriangleView;
 
@@ -28,6 +27,14 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 @implementation ASLSlotMachineView
 
 #pragma mark - Public Properties
+
+- (void)setSlotDataSource:(id <ASLSlotViewDataSource>)slotDataSource {
+    _slotDataSource = slotDataSource;
+    self.firstSlot.slotDataSource = slotDataSource;
+    self.secondSlot.slotDataSource = slotDataSource;
+    self.thirdSlot.slotDataSource = slotDataSource;
+}
+
 #pragma mark - Public Class Methods
 #pragma mark - Public Instance Methods
 
@@ -35,13 +42,10 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
     [self setupSlotsToInitialRandomItemNumbers];
 }
 
-- (void)spinSlotMachine {
-    NSUInteger itemNumber = 50 + arc4random() % 3;
-    [self.firstSlot spinSlotToItemNumber:itemNumber animated:YES];
-    itemNumber = 71 + arc4random() % 3;
-    [self.secondSlot spinSlotToItemNumber:itemNumber animated:YES];
-    itemNumber = 92 + arc4random() % 3;
-    [self.thirdSlot spinSlotToItemNumber:itemNumber animated:YES];
+- (void)spinSlotMachineWithResult:(NSArray *)result {
+    [self.firstSlot spinSlotToItemNumber:[result[0] unsignedIntegerValue] animated:YES];
+    [self.secondSlot spinSlotToItemNumber:[result[1] unsignedIntegerValue] animated:YES];
+    [self.thirdSlot spinSlotToItemNumber:[result[2] unsignedIntegerValue] animated:YES];
 }
 
 #pragma mark - IBActions
@@ -61,14 +65,6 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 }
 
 #pragma mark - Private Properties
-
-- (ASLSlotDataSource *)slotDataSource {
-    if (_slotDataSource == nil) {
-        _slotDataSource = [[ASLSlotDataSource alloc] init];
-    }
-    return _slotDataSource;
-}
-
 #pragma mark - Private Class Methods
 #pragma mark - Private Instance Methods
 

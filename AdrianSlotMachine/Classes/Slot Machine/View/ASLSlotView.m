@@ -6,6 +6,7 @@
 #import "ASLSlotView.h"
 #import "ASLSlotCell.h"
 #import "ASLSlotDataSource.h"
+#import "ASLFruits.h"
 
 
 @interface ASLSlotView ()
@@ -27,6 +28,10 @@
 #pragma mark - Public Instance Methods
 
 - (void)spinSlotToItemNumber:(NSUInteger)itemNumber animated:(BOOL)animated {
+    if (self.slotDataSource == nil) {
+        return;
+    }
+
     if (animated) {
         [self spinSlotAnimatedToItemNumber:itemNumber];
     } else {
@@ -112,7 +117,7 @@
                         options:UIViewAnimationOptionCurveLinear
                      animations:animations
                      completion:^(BOOL finished) {
-                         NSUInteger theSameBeginItemNumber = self.targetItemNumber % [self.slotDataSource differentFruitTypesCount];
+                         NSUInteger theSameBeginItemNumber = self.targetItemNumber % [ASLFruits fruitTypes].count;
                          theSameBeginItemNumber = theSameBeginItemNumber == 0 ? 3 : theSameBeginItemNumber;
                          [self spinSlotWithoutAnimationToItemNumber:theSameBeginItemNumber];
                      }];

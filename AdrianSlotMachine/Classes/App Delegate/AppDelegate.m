@@ -9,6 +9,7 @@
 
 #import "AppDelegate.h"
 #import "ASLSlotMachineViewController.h"
+#import "ASLSlotItemNumbersGenerator.h"
 
 
 @interface AppDelegate ()
@@ -30,7 +31,8 @@
 }
 
 - (UIViewController *)createRootViewController {
-    ASLSlotMachineViewController *slotMachineViewController = [[ASLSlotMachineViewController alloc] init];
+    ASLSlotItemNumbersGenerator *numbersGenerator = [[ASLSlotItemNumbersGenerator alloc] init];
+    ASLSlotMachineViewController *slotMachineViewController = [[ASLSlotMachineViewController alloc] initWithSlotItemNumbersGenerator:numbersGenerator];
     return slotMachineViewController;
 }
 

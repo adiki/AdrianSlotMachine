@@ -1,11 +1,9 @@
 //
 // Created by a on 09/07/15.
+// Copyright (c) 2015 Adrian Sliwa. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "ASLSlotView.h"
-
-extern NSString *const kSlotMachineCellIdentifier;
 
 typedef NS_ENUM(NSInteger, ASLFruitType) {
     ASLFruitTypeBurrito,
@@ -14,7 +12,9 @@ typedef NS_ENUM(NSInteger, ASLFruitType) {
 };
 
 
+@interface ASLFruits : NSObject
 
-@interface ASLSlotDataSource : NSObject <ASLSlotViewDataSource>
++ (NSArray *)fruitTypes;
++ (NSString *)imageNameForFruitType:(ASLFruitType)fruitType;
 
 @end

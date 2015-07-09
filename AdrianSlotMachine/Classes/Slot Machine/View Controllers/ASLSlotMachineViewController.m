@@ -4,8 +4,15 @@
 
 #import "ASLSlotMachineViewController.h"
 #import "ASLSlotMachineControllerView.h"
+#import "ASLSlotDataSource.h"
+#import "ASLSlotItemNumbersGenerator.h"
+#import "ASLFruits.h"
 
 @interface ASLSlotMachineViewController () <ASLSlotMachineControllerViewDelegate>
+
+@property(nonatomic, strong) ASLSlotItemNumbersGenerator *slotItemNumbersGenerator;
+@property(nonatomic, strong) ASLSlotDataSource *slotDataSource;
+
 @end
 
 @implementation ASLSlotMachineViewController
@@ -13,11 +20,25 @@
 #pragma mark - Public Properties
 #pragma mark - Public Class Methods
 #pragma mark - Public Instance Methods
+
+- (instancetype)initWithSlotItemNumbersGenerator:(ASLSlotItemNumbersGenerator *)slotItemNumbersGenerator {
+    self = [super init];
+
+    if (self) {
+        _slotItemNumbersGenerator = slotItemNumbersGenerator;
+    }
+
+    return self;
+}
+
 #pragma mark - IBActions
 #pragma mark - Overridden
 
 - (void)loadView {
-    ASLSlotMachineControllerView *slotMachineControllerView = [[ASLSlotMachineControllerView alloc] init];
+    NSUInteger cellsCount = self.slotItemNumbersGenerator.generationUpperRange + 1;
+    NSArray *fruitTypes = [ASLFruits fruitTypes];
+    self.slotDataSource = [[ASLSlotDataSource alloc] initWithCellsCount:cellsCount fruitTypes:fruitTypes];
+    ASLSlotMachineControllerView *slotMachineControllerView = [[ASLSlotMachineControllerView alloc] initWithSlotDataSource:self.slotDataSource];
     slotMachineControllerView.delegate = self;
     self.view = slotMachineControllerView;
 }
@@ -40,7 +61,8 @@
 
 - (void)slotMachineControllerViewSpinButtonTapped:(ASLSlotMachineControllerView *)slotMachineControllerView {
     [self.slotMachineControllerView setSpinButtonEnabled:NO];
-    [self.slotMachineControllerView spinSlotMachine];
+    NSArray *result = [self.slotItemNumbersGenerator generateSlotItemNumbers];
+    [self.slotMachineControllerView spinSlotMachineWithResult:result];
 }
 
 #pragma mark - Notifications

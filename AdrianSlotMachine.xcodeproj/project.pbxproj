@@ -9,17 +9,19 @@
 /* Begin PBXBuildFile section */
 		6122B6F27BB4BC97B160D075 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CAA8B461C713BD421A1F7D /* Images.xcassets */; };
 		613145C33B0124F191EA86DE /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6176FB96065F83EF7696D92B /* NSMutableArray+Shuffle.m */; };
+		6132D4E76E2F9C7FF9D7F117 /* ASLSlotMachineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6183F520D8EFB53128248EEA /* ASLSlotMachineViewController.m */; };
 		6142D010E2D0D16F5276219F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F106E02816EB179D396985 /* main.m */; };
-		61683ACD747FB0624955EA18 /* ASLSlotMachineControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BDAE8D30B27962338052CA /* ASLSlotMachineControllerView.m */; };
+		614BF619218AD854F26EA101 /* ASLTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 614103F428D7113F0E7BA3E9 /* ASLTriangleView.m */; };
+		6159E6FA3528602C85110B38 /* ASLSlotMachineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E6584A05B6BA9CB1B0F87D /* ASLSlotMachineView.m */; };
+		617A8C1EED44B39791D59E65 /* ASLSlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6135EAA785D80CD8DFB75154 /* ASLSlotView.m */; };
+		617C37D02431E7C1855BB5FB /* ASLSlotMachineControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F14F8A73BCF997248F029F /* ASLSlotMachineControllerView.m */; };
 		617D070A9FF206C0B0126DDA /* UIColor+ASLSlotMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 619139243DA9CFFD4A22EECB /* UIColor+ASLSlotMachine.m */; };
-		6180D04880DE05AFCB81395F /* ASLSlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A12B843F2FC5DCC7B6BE1C /* ASLSlotCell.m */; };
-		618E11FFAB5E964118CDA880 /* ASLTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A177B5801B6BBF16647C7 /* ASLTriangleView.m */; };
 		61902ACD0ED0814C15F8CADA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 611DA9120CDAAF333810E44C /* AppDelegate.m */; };
-		619CBA941F501ECAFDDA26F8 /* ASLSlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 611C0550EECAA93B004C2174 /* ASLSlotView.m */; };
 		61A5DF0147BD9A79D3B454F9 /* AdrianSlotMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A612BB49E12AD7BEA95E89 /* AdrianSlotMachineTests.m */; };
-		61CF8DA1C10E2EDA1CE66166 /* ASLSlotDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 615D1647DCAA7903B25F9659 /* ASLSlotDataSource.m */; };
-		61D0BBA2F44AE720AA4217DD /* ASLSlotMachineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D8C1015160E251E90495BD /* ASLSlotMachineView.m */; };
-		61F6F918EA46D51429A80BC6 /* ASLSlotMachineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6172B764AA8DF4A1A7DB71BC /* ASLSlotMachineViewController.m */; };
+		61B4BD5648F5DF3CEBC391DE /* ASLFruits.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFFD1F9BB33012FE1F0CF5 /* ASLFruits.m */; };
+		61C81F40202789601DFA8171 /* ASLSlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61055CBBCCB16A534FC4F233 /* ASLSlotCell.m */; };
+		61E2C4617B5AE056D9DD2205 /* ASLSlotItemNumbersGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E3C9712C7914AB48B05E27 /* ASLSlotItemNumbersGenerator.m */; };
+		61F2A04B1C29EFB97C3CF2BE /* ASLSlotDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BD65E28F2CC94A184E77AA /* ASLSlotDataSource.m */; };
 		61F8C875B777A87521598632 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61F9FEA060946E15D0CCBCF4 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
@@ -35,33 +37,37 @@
 
 /* Begin PBXFileReference section */
 		610190CC12FF4B74A5185A22 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		61055CBBCCB16A534FC4F233 /* ASLSlotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotCell.m; sourceTree = "<group>"; };
 		610BCCB0920C712F897A3637 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6114BEA348866BE388DAD4B8 /* ASLSlotMachineControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineControllerView.h; sourceTree = "<group>"; };
 		6116FB016EA2B61163151294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		611C0550EECAA93B004C2174 /* ASLSlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotView.m; sourceTree = "<group>"; };
 		611DA9120CDAAF333810E44C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		61465A0F6D685CBEE72DCCE3 /* ASLSlotMachineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineView.h; sourceTree = "<group>"; };
-		614A177B5801B6BBF16647C7 /* ASLTriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLTriangleView.m; sourceTree = "<group>"; };
-		614CD69DF550B14CD2D2888A /* ASLSlotDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotDataSource.h; sourceTree = "<group>"; };
-		6152DC68DA8578AD66812D4F /* ASLSlotMachineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineViewController.h; sourceTree = "<group>"; };
-		615D1647DCAA7903B25F9659 /* ASLSlotDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotDataSource.m; sourceTree = "<group>"; };
+		61265A5FE641D4FBBB8BFE09 /* ASLSlotMachineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineView.h; sourceTree = "<group>"; };
+		61330454E57C32DB9DB27E38 /* ASLSlotDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotDataSource.h; sourceTree = "<group>"; };
+		6135D18BDEB388FE6B68CB7E /* ASLFruits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLFruits.h; sourceTree = "<group>"; };
+		6135EAA785D80CD8DFB75154 /* ASLSlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotView.m; sourceTree = "<group>"; };
+		614103F428D7113F0E7BA3E9 /* ASLTriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLTriangleView.m; sourceTree = "<group>"; };
+		614544D9B0E1786376C4831A /* ASLSlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotView.h; sourceTree = "<group>"; };
 		61683B13A0DF3180AE3D15DC /* UIColor+ASLSlotMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ASLSlotMachine.h"; sourceTree = "<group>"; };
-		6172B764AA8DF4A1A7DB71BC /* ASLSlotMachineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineViewController.m; sourceTree = "<group>"; };
 		6176FB96065F83EF7696D92B /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
-		617864EDBF863374391BBA1D /* ASLTriangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLTriangleView.h; sourceTree = "<group>"; };
-		618F931E363BE16B9DF2D3A9 /* ASLSlotMachineControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineControllerView.h; sourceTree = "<group>"; };
+		6183F520D8EFB53128248EEA /* ASLSlotMachineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineViewController.m; sourceTree = "<group>"; };
 		619139243DA9CFFD4A22EECB /* UIColor+ASLSlotMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ASLSlotMachine.m"; sourceTree = "<group>"; };
 		619B270F42A8BCB19F0F53C4 /* AdrianSlotMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdrianSlotMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		619BB28ED5157DA10F440E1A /* ASLSlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotCell.h; sourceTree = "<group>"; };
-		61A12B843F2FC5DCC7B6BE1C /* ASLSlotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotCell.m; sourceTree = "<group>"; };
+		61A2D0628486BD4CD455DF03 /* ASLSlotItemNumbersGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotItemNumbersGenerator.h; sourceTree = "<group>"; };
 		61A612BB49E12AD7BEA95E89 /* AdrianSlotMachineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdrianSlotMachineTests.m; sourceTree = "<group>"; };
 		61A6520F05267BDF313B8C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		61AF6BD336EC0D28696D3D17 /* ASLSlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotView.h; sourceTree = "<group>"; };
-		61BDAE8D30B27962338052CA /* ASLSlotMachineControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineControllerView.m; sourceTree = "<group>"; };
+		61BD65E28F2CC94A184E77AA /* ASLSlotDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotDataSource.m; sourceTree = "<group>"; };
 		61CAA8B461C713BD421A1F7D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		61CFFD1F9BB33012FE1F0CF5 /* ASLFruits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLFruits.m; sourceTree = "<group>"; };
 		61D36F6D6AEFFA9542932041 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
-		61D8C1015160E251E90495BD /* ASLSlotMachineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineView.m; sourceTree = "<group>"; };
+		61E1226F15B5346FA0FC16F2 /* ASLSlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotCell.h; sourceTree = "<group>"; };
+		61E3C9712C7914AB48B05E27 /* ASLSlotItemNumbersGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotItemNumbersGenerator.m; sourceTree = "<group>"; };
+		61E6584A05B6BA9CB1B0F87D /* ASLSlotMachineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineView.m; sourceTree = "<group>"; };
 		61E8EE642D253E13CCB00751 /* AdrianSlotMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdrianSlotMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61E98C484C8AC4E43844C891 /* ASLTriangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLTriangleView.h; sourceTree = "<group>"; };
 		61F106E02816EB179D396985 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		61F14F8A73BCF997248F029F /* ASLSlotMachineControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineControllerView.m; sourceTree = "<group>"; };
+		61F4702CA3CF934E64D4FBDD /* ASLSlotMachineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6116DE1C70520B776527D5DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6114BEA348866BE388DAD4B8 /* ASLSlotMachineControllerView.h */,
+				61F14F8A73BCF997248F029F /* ASLSlotMachineControllerView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		611D8CA683FA83822A7141E4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,14 +114,32 @@
 			);
 			sourceTree = "<group>";
 		};
-		612540DA6940B8C78755577F /* View Controllers */ = {
+		6140AC5EE5FA79B41B20FCA9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6172B764AA8DF4A1A7DB71BC /* ASLSlotMachineViewController.m */,
-				6152DC68DA8578AD66812D4F /* ASLSlotMachineViewController.h */,
-				6198BB0FF893765F7580EF04 /* View */,
+				61330454E57C32DB9DB27E38 /* ASLSlotDataSource.h */,
+				61BD65E28F2CC94A184E77AA /* ASLSlotDataSource.m */,
+				61E3C9712C7914AB48B05E27 /* ASLSlotItemNumbersGenerator.m */,
+				61A2D0628486BD4CD455DF03 /* ASLSlotItemNumbersGenerator.h */,
+				61CFFD1F9BB33012FE1F0CF5 /* ASLFruits.m */,
+				6135D18BDEB388FE6B68CB7E /* ASLFruits.h */,
 			);
-			path = "View Controllers";
+			path = Model;
+			sourceTree = "<group>";
+		};
+		614BBB40B6157B90DE144DF9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				61055CBBCCB16A534FC4F233 /* ASLSlotCell.m */,
+				61E98C484C8AC4E43844C891 /* ASLTriangleView.h */,
+				614103F428D7113F0E7BA3E9 /* ASLTriangleView.m */,
+				61E6584A05B6BA9CB1B0F87D /* ASLSlotMachineView.m */,
+				61265A5FE641D4FBBB8BFE09 /* ASLSlotMachineView.h */,
+				614544D9B0E1786376C4831A /* ASLSlotView.h */,
+				61E1226F15B5346FA0FC16F2 /* ASLSlotCell.h */,
+				6135EAA785D80CD8DFB75154 /* ASLSlotView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		617719B24BD3F6CF5BFB96ED /* Supporting Files */ = {
@@ -121,14 +154,9 @@
 		6189ACF2FBEF2D13EE338537 /* Slot Machine */ = {
 			isa = PBXGroup;
 			children = (
-				619BB28ED5157DA10F440E1A /* ASLSlotCell.h */,
-				61A12B843F2FC5DCC7B6BE1C /* ASLSlotCell.m */,
-				614CD69DF550B14CD2D2888A /* ASLSlotDataSource.h */,
-				615D1647DCAA7903B25F9659 /* ASLSlotDataSource.m */,
-				61465A0F6D685CBEE72DCCE3 /* ASLSlotMachineView.h */,
-				61D8C1015160E251E90495BD /* ASLSlotMachineView.m */,
-				611C0550EECAA93B004C2174 /* ASLSlotView.m */,
-				61AF6BD336EC0D28696D3D17 /* ASLSlotView.h */,
+				614BBB40B6157B90DE144DF9 /* View */,
+				6140AC5EE5FA79B41B20FCA9 /* Model */,
+				61A9FE6BDA4296D3A0497625 /* View Controllers */,
 			);
 			path = "Slot Machine";
 			sourceTree = "<group>";
@@ -148,20 +176,10 @@
 			isa = PBXGroup;
 			children = (
 				61EAD7F74E194C179D8D8BA9 /* App Delegate */,
-				612540DA6940B8C78755577F /* View Controllers */,
 				6189ACF2FBEF2D13EE338537 /* Slot Machine */,
 				61EB15FF46A713A6F29148A4 /* Helpers */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		6198BB0FF893765F7580EF04 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				618F931E363BE16B9DF2D3A9 /* ASLSlotMachineControllerView.h */,
-				61BDAE8D30B27962338052CA /* ASLSlotMachineControllerView.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		619C799A75AED6BE581ADC09 /* AdrianSlotMachineTests */ = {
@@ -171,6 +189,16 @@
 				61A612BB49E12AD7BEA95E89 /* AdrianSlotMachineTests.m */,
 			);
 			path = AdrianSlotMachineTests;
+			sourceTree = "<group>";
+		};
+		61A9FE6BDA4296D3A0497625 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6183F520D8EFB53128248EEA /* ASLSlotMachineViewController.m */,
+				61F4702CA3CF934E64D4FBDD /* ASLSlotMachineViewController.h */,
+				6116DE1C70520B776527D5DA /* View */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		61EAD7F74E194C179D8D8BA9 /* App Delegate */ = {
@@ -187,8 +215,6 @@
 			children = (
 				61683B13A0DF3180AE3D15DC /* UIColor+ASLSlotMachine.h */,
 				619139243DA9CFFD4A22EECB /* UIColor+ASLSlotMachine.m */,
-				617864EDBF863374391BBA1D /* ASLTriangleView.h */,
-				614A177B5801B6BBF16647C7 /* ASLTriangleView.m */,
 				6176FB96065F83EF7696D92B /* NSMutableArray+Shuffle.m */,
 				61D36F6D6AEFFA9542932041 /* NSMutableArray+Shuffle.h */,
 			);
@@ -302,15 +328,17 @@
 			files = (
 				6142D010E2D0D16F5276219F /* main.m in Sources */,
 				61902ACD0ED0814C15F8CADA /* AppDelegate.m in Sources */,
-				61F6F918EA46D51429A80BC6 /* ASLSlotMachineViewController.m in Sources */,
-				61683ACD747FB0624955EA18 /* ASLSlotMachineControllerView.m in Sources */,
-				61CF8DA1C10E2EDA1CE66166 /* ASLSlotDataSource.m in Sources */,
-				6180D04880DE05AFCB81395F /* ASLSlotCell.m in Sources */,
-				61D0BBA2F44AE720AA4217DD /* ASLSlotMachineView.m in Sources */,
 				617D070A9FF206C0B0126DDA /* UIColor+ASLSlotMachine.m in Sources */,
-				618E11FFAB5E964118CDA880 /* ASLTriangleView.m in Sources */,
 				613145C33B0124F191EA86DE /* NSMutableArray+Shuffle.m in Sources */,
-				619CBA941F501ECAFDDA26F8 /* ASLSlotView.m in Sources */,
+				61C81F40202789601DFA8171 /* ASLSlotCell.m in Sources */,
+				614BF619218AD854F26EA101 /* ASLTriangleView.m in Sources */,
+				6159E6FA3528602C85110B38 /* ASLSlotMachineView.m in Sources */,
+				617A8C1EED44B39791D59E65 /* ASLSlotView.m in Sources */,
+				61F2A04B1C29EFB97C3CF2BE /* ASLSlotDataSource.m in Sources */,
+				61E2C4617B5AE056D9DD2205 /* ASLSlotItemNumbersGenerator.m in Sources */,
+				6132D4E76E2F9C7FF9D7F117 /* ASLSlotMachineViewController.m in Sources */,
+				617C37D02431E7C1855BB5FB /* ASLSlotMachineControllerView.m in Sources */,
+				61B4BD5648F5DF3CEBC391DE /* ASLFruits.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

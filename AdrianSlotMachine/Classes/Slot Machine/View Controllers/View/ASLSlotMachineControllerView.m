@@ -5,6 +5,7 @@
 #import "ASLSlotMachineControllerView.h"
 #import "UIColor+ASLSlotMachine.h"
 #import "ASLSlotMachineView.h"
+#import "ASLSlotDataSource.h"
 
 @interface ASLSlotMachineControllerView ()
 
@@ -29,20 +30,20 @@
     self.spinButton.alpha = 0.5;
 }
 
-- (void)spinSlotMachine {
-    [self.slotMachineView spinSlotMachine];
+- (void)spinSlotMachineWithResult:(NSArray *)result {
+    [self.slotMachineView spinSlotMachineWithResult:result];
 }
 
 #pragma mark - IBActions
 #pragma mark - Overridden
 
-- (instancetype)init {
+- (instancetype)initWithSlotDataSource:(ASLSlotDataSource *)slotDataSource {
     self = [super initWithFrame:CGRectZero];
 
     if (self) {
         [self setupBackground];
         [self setupCenterContainer];
-        [self setupSlotMachineView];
+        [self setupSlotMachineViewWithSlotDataSource:slotDataSource];
         [self setupSpinButton];
         [self setupConstraints];
     }
@@ -64,9 +65,10 @@
     [self addSubview:_centerContainer];
 }
 
-- (void)setupSlotMachineView {
+- (void)setupSlotMachineViewWithSlotDataSource:(ASLSlotDataSource *)slotDataSource {
     _slotMachineView = [[ASLSlotMachineView alloc] init];
     _slotMachineView.translatesAutoresizingMaskIntoConstraints = NO;
+    _slotMachineView.slotDataSource = slotDataSource;
     [_centerContainer addSubview:_slotMachineView];
 }
 
