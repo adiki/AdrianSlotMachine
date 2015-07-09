@@ -79,7 +79,7 @@
     [_spinButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_spinButton setBackgroundColor:[UIColor aslTurquoiseColor]];
     [_spinButton addTarget:self action:@selector(spinButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    _spinButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:29];
+    _spinButton.titleLabel.font = [UIFont fontWithName:@"EuphemiaUCAS" size:29];
     [_centerContainer addSubview:_spinButton];
 }
 
@@ -109,7 +109,7 @@
                                                       constant:0.0f]];
 }
 
-- (void)spinButtonTapped:(UIButton *)spinButtonTapped {
+- (void)spinButtonTapped:(UIButton *)spinButton {
     [self.delegate slotMachineControllerViewSpinButtonTapped:self];
 }
 

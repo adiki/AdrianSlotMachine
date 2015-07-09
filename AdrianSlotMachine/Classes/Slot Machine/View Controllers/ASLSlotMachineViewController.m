@@ -7,11 +7,14 @@
 #import "ASLSlotDataSource.h"
 #import "ASLSlotItemNumbersGenerator.h"
 #import "ASLFruits.h"
+#import "ASLAlertViewController.h"
+#import "ASLAlertTransitioningDelegate.h"
 
 @interface ASLSlotMachineViewController () <ASLSlotMachineControllerViewDelegate>
 
 @property(nonatomic, strong) ASLSlotItemNumbersGenerator *slotItemNumbersGenerator;
 @property(nonatomic, strong) ASLSlotDataSource *slotDataSource;
+@property(nonatomic, strong) ASLAlertTransitioningDelegate *alertTransitioningDelegate;
 
 @end
 
@@ -49,11 +52,26 @@
 }
 
 #pragma mark - Private Properties
+
+- (ASLAlertTransitioningDelegate *)alertTransitioningDelegate {
+    if (_alertTransitioningDelegate == nil) {
+        _alertTransitioningDelegate = [[ASLAlertTransitioningDelegate alloc] init];
+    }
+    return _alertTransitioningDelegate;
+}
+
 #pragma mark - Private Class Methods
 #pragma mark - Private Instance Methods
 
 - (ASLSlotMachineControllerView *)slotMachineControllerView {
     return (ASLSlotMachineControllerView *) self.view;
+}
+
+- (void)openAlert {
+    ASLAlertViewController *alertViewController = [[ASLAlertViewController alloc] init];
+    alertViewController.modalPresentationStyle = UIModalPresentationCustom;
+    alertViewController.transitioningDelegate = self.alertTransitioningDelegate;
+    [self presentViewController:alertViewController animated:YES completion:nil];
 }
 
 #pragma mark - ASLSlotMachineControllerViewDelegate
@@ -64,6 +82,7 @@
     __weak typeof(self) weakSelf = self;
     [self.slotMachineControllerView spinSlotMachineWithResult:result completion:^{
         [weakSelf.slotMachineControllerView setSpinButtonEnabled:YES];
+        [weakSelf openAlert];
     }];
 }
 

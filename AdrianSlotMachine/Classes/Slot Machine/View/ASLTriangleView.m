@@ -64,17 +64,13 @@
         default:
             [NSException raise:NSGenericException format:@"Unexpected ASLTriangleType."];
     }
-    if (self.triangleType == ASLTriangleTypeLeft) {
 
-    }
     CGContextMoveToPoint   (ctx, firstX, firstY);  // top left
     CGContextAddLineToPoint(ctx, secondX, secondY);  // mid right
     CGContextAddLineToPoint(ctx, thirdX, thirdY);  // bottom left
     CGContextClosePath(ctx);
 
-    CGFloat red, green, blue, alpha;
-    [self.triangleColor getRed:&red green:&green blue:&blue alpha:&alpha];
-    CGContextSetRGBFillColor(ctx, red, green, blue, alpha);
+    CGContextSetFillColorWithColor(ctx, self.triangleColor.CGColor);
     CGContextFillPath(ctx);
 }
 

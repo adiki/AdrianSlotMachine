@@ -11,4 +11,5 @@
 
 - (instancetype)initWithSlotItemNumbersGenerator:(ASLSlotItemNumbersGenerator *)numbersGenerator;
 
+- (void)openAlert;
 @end
