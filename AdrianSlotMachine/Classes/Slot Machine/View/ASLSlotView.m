@@ -21,6 +21,10 @@
 #pragma mark - Public Class Methods
 #pragma mark - Public Instance Methods
 
+- (BOOL)isAnimating {
+    return self.timer.isValid;
+}
+
 - (void)spinSlotToItemNumber:(NSUInteger)itemNumber animated:(BOOL)animated {
     if (self.dataSource == nil) {
         return;

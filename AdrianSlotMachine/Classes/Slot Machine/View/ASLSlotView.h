@@ -16,6 +16,7 @@
 
 @interface ASLSlotView : UITableView
 
+- (BOOL)isAnimating;
 - (void)spinSlotToItemNumber:(NSUInteger)itemNumber animated:(BOOL)animated;
 
 @end

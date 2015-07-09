@@ -44,11 +44,20 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
     return self;
 }
 
+- (BOOL)isAnimating {
+    return [self.firstSlot isAnimating] ||
+           [self.secondSlot isAnimating] ||
+           [self.thirdSlot isAnimating];
+}
+
 - (void)setupSlotMachine {
     [self setupSlotsToInitialRandomItemNumbers];
 }
 
 - (void)spinSlotMachineWithResult:(NSArray *)result completion:(void (^)())completion {
+    if ([self isAnimating]) {
+        return;
+    }
     [self.firstSlot spinSlotToItemNumber:[result[0] unsignedIntegerValue] animated:YES];
     [self.secondSlot spinSlotToItemNumber:[result[1] unsignedIntegerValue] animated:YES];
     [self.thirdSlot spinSlotToItemNumber:[result[2] unsignedIntegerValue] animated:YES];
