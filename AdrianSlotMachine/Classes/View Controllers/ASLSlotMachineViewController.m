@@ -5,6 +5,9 @@
 #import "ASLSlotMachineViewController.h"
 #import "ASLSlotMachineControllerView.h"
 
+@interface ASLSlotMachineViewController () <ASLSlotMachineControllerViewDelegate>
+@end
+
 @implementation ASLSlotMachineViewController
 
 #pragma mark - Public Properties
@@ -14,13 +17,31 @@
 #pragma mark - Overridden
 
 - (void)loadView {
-    self.view = [[ASLSlotMachineControllerView alloc] init];
+    ASLSlotMachineControllerView *slotMachineControllerView = [[ASLSlotMachineControllerView alloc] init];
+    slotMachineControllerView.delegate = self;
+    self.view = slotMachineControllerView;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.slotMachineControllerView setupSlotMachine];
 }
 
 #pragma mark - Private Properties
 #pragma mark - Private Class Methods
 #pragma mark - Private Instance Methods
-#pragma mark - Protocols
+
+- (ASLSlotMachineControllerView *)slotMachineControllerView {
+    return (ASLSlotMachineControllerView *) self.view;
+}
+
+
+#pragma mark - ASLSlotMachineControllerViewDelegate
+
+- (void)slotMachineControllerViewSpinButtonTapped:(ASLSlotMachineControllerView *)slotMachineControllerView {
+    [self.slotMachineControllerView setSpinButtonEnabled:NO];
+}
+
 #pragma mark - Notifications
 
 @end

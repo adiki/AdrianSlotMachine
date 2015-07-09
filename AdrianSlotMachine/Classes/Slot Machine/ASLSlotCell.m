@@ -22,6 +22,16 @@ CGFloat const kSlotCellHeight = 75;
     self.slotImageView.image = [UIImage imageNamed:imageName];
 }
 
+- (void)makeFadedAnimated:(BOOL)animated {
+    if (animated == NO) {
+        self.slotImageView.alpha = 0.5;
+        return;
+    }
+    [UIView animateWithDuration:1 animations:^{
+        self.slotImageView.alpha = 0.5;
+    }];
+}
+
 #pragma mark - IBActions
 #pragma mark - Overridden
 
@@ -35,6 +45,11 @@ CGFloat const kSlotCellHeight = 75;
     }
 
     return self;
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.slotImageView.alpha = 1;
 }
 
 #pragma mark - Private Properties

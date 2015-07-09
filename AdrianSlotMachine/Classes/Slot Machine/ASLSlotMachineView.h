@@ -6,4 +6,8 @@
 
 
 @interface ASLSlotMachineView : UIView
+
+- (void)setupSlotMachine;
+- (void)spinSlotMachine;
+
 @end

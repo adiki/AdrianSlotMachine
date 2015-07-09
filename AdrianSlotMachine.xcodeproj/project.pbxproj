@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6122B6F27BB4BC97B160D075 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CAA8B461C713BD421A1F7D /* Images.xcassets */; };
+		613145C33B0124F191EA86DE /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6176FB96065F83EF7696D92B /* NSMutableArray+Shuffle.m */; };
 		6142D010E2D0D16F5276219F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F106E02816EB179D396985 /* main.m */; };
 		61683ACD747FB0624955EA18 /* ASLSlotMachineControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BDAE8D30B27962338052CA /* ASLSlotMachineControllerView.m */; };
 		617D070A9FF206C0B0126DDA /* UIColor+ASLSlotMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 619139243DA9CFFD4A22EECB /* UIColor+ASLSlotMachine.m */; };
@@ -43,6 +44,7 @@
 		615D1647DCAA7903B25F9659 /* ASLSlotDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotDataSource.m; sourceTree = "<group>"; };
 		61683B13A0DF3180AE3D15DC /* UIColor+ASLSlotMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ASLSlotMachine.h"; sourceTree = "<group>"; };
 		6172B764AA8DF4A1A7DB71BC /* ASLSlotMachineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineViewController.m; sourceTree = "<group>"; };
+		6176FB96065F83EF7696D92B /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
 		617864EDBF863374391BBA1D /* ASLTriangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLTriangleView.h; sourceTree = "<group>"; };
 		618F931E363BE16B9DF2D3A9 /* ASLSlotMachineControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineControllerView.h; sourceTree = "<group>"; };
 		619139243DA9CFFD4A22EECB /* UIColor+ASLSlotMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ASLSlotMachine.m"; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 		61A6520F05267BDF313B8C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		61BDAE8D30B27962338052CA /* ASLSlotMachineControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineControllerView.m; sourceTree = "<group>"; };
 		61CAA8B461C713BD421A1F7D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		61D36F6D6AEFFA9542932041 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
 		61D8C1015160E251E90495BD /* ASLSlotMachineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineView.m; sourceTree = "<group>"; };
 		61E8EE642D253E13CCB00751 /* AdrianSlotMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdrianSlotMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F106E02816EB179D396985 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				619139243DA9CFFD4A22EECB /* UIColor+ASLSlotMachine.m */,
 				617864EDBF863374391BBA1D /* ASLTriangleView.h */,
 				614A177B5801B6BBF16647C7 /* ASLTriangleView.m */,
+				6176FB96065F83EF7696D92B /* NSMutableArray+Shuffle.m */,
+				61D36F6D6AEFFA9542932041 /* NSMutableArray+Shuffle.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				61D0BBA2F44AE720AA4217DD /* ASLSlotMachineView.m in Sources */,
 				617D070A9FF206C0B0126DDA /* UIColor+ASLSlotMachine.m in Sources */,
 				618E11FFAB5E964118CDA880 /* ASLTriangleView.m in Sources */,
+				613145C33B0124F191EA86DE /* NSMutableArray+Shuffle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

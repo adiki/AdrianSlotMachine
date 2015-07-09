@@ -9,5 +9,6 @@ extern CGFloat const kSlotCellHeight;
 @interface ASLSlotCell : UITableViewCell
 
 - (void)configureWithImageName:(NSString *)imageName;
+- (void)makeFadedAnimated:(BOOL)animated;
 
 @end

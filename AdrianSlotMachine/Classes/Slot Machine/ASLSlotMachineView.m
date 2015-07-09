@@ -7,6 +7,7 @@
 #import "UIColor+ASLSlotMachine.h"
 #import "ASLSlotDataSource.h"
 #import "ASLSlotCell.h"
+#import "NSMutableArray+Shuffle.h"
 
 CGFloat const kSlotsContainerMargin = 4;
 CGFloat const kSlotsContainerBorderWidth = 6;
@@ -30,6 +31,16 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 #pragma mark - Public Properties
 #pragma mark - Public Class Methods
 #pragma mark - Public Instance Methods
+
+- (void)setupSlotMachine {
+    [self setupSlotsToInitialRandomItems];
+}
+
+- (void)spinSlotMachine {
+
+}
+
+
 #pragma mark - IBActions
 #pragma mark - Overridden
 
@@ -44,11 +55,6 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
     }
 
     return self;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    [self scrollSlotsToRandomItems];
 }
 
 #pragma mark - Private Properties
@@ -174,25 +180,32 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
                                                       constant:0.0f]];
 }
 
-- (void)scrollSlotsToRandomItems {
-    CGFloat halfOfSlotHeight = [self halfOfSlotHeight];
+- (void)setupSlotsToInitialRandomItems {
+    NSMutableArray *itemNumbers = [@[@1, @2, @3] mutableCopy];
+    [itemNumbers shuffle];
+    [self scrollSlotToInitialRandomItem:self.firstSlot itemNumber:[itemNumbers[0] unsignedIntegerValue]];
+    [self scrollSlotToInitialRandomItem:self.secondSlot itemNumber:[itemNumbers[1] unsignedIntegerValue]];
+    [self scrollSlotToInitialRandomItem:self.thirdSlot itemNumber:[itemNumbers[2] unsignedIntegerValue]];
+}
 
-    NSUInteger itemNumber = arc4random() % 3 + 1;
+- (void)scrollSlotToInitialRandomItem:(UITableView *)slot itemNumber:(NSUInteger)itemNumber{
+    CGFloat halfOfSlotHeight = [self halfOfSlotHeight];;
     CGFloat offsetY = kSlotCellHeight * itemNumber + kSlotCellHeight / 2 - halfOfSlotHeight;
-    self.firstSlot.contentOffset = CGPointMake(self.firstSlot.contentOffset.x, offsetY);
+    slot.contentOffset = CGPointMake(slot.contentOffset.x, offsetY);
+    [self makeNeighboursFadedForSlot:slot itemNumber:itemNumber];
+}
 
-    itemNumber = arc4random() % 3 + 1;
-    offsetY = kSlotCellHeight * itemNumber + kSlotCellHeight / 2 - halfOfSlotHeight;
-    self.secondSlot.contentOffset = CGPointMake(self.secondSlot.contentOffset.x, offsetY);
-
-    itemNumber = arc4random() % 3 + 1;
-    offsetY = kSlotCellHeight * itemNumber + kSlotCellHeight / 2 - halfOfSlotHeight;
-    self.thirdSlot.contentOffset = CGPointMake(self.thirdSlot.contentOffset.x, offsetY);
+- (void)makeNeighboursFadedForSlot:(UITableView *)slot itemNumber:(NSUInteger)itemNumber {
+    ASLSlotCell *slotCell = (ASLSlotCell *) [slot cellForRowAtIndexPath:[NSIndexPath indexPathForItem:itemNumber - 1 inSection:0]];
+    [slotCell makeFadedAnimated:NO];
+    slotCell = (ASLSlotCell *) [slot cellForRowAtIndexPath:[NSIndexPath indexPathForItem:itemNumber + 1 inSection:0]];
+    [slotCell makeFadedAnimated:NO];
 }
 
 - (CGFloat)halfOfSlotHeight {
     return self.slotsContainer.frame.size.height / 2 - kSlotsContainerBorderWidth;
 }
+
 
 #pragma mark - Protocols
 #pragma mark - Notifications
