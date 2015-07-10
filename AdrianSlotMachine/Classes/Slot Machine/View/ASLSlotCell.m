@@ -38,6 +38,14 @@ CGFloat const kSlotCellHeight = 75;
     self.slotImageView.layer.shadowOpacity = 0.75;
 }
 
+- (void)rotateImage {
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = @(M_PI * 2.0);
+    rotationAnimation.duration = 1.0;
+    [self.slotImageView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+}
+
 #pragma mark - IBActions
 #pragma mark - Overridden
 
@@ -57,6 +65,7 @@ CGFloat const kSlotCellHeight = 75;
     [super prepareForReuse];
     self.slotImageView.alpha = 1;
     self.slotImageView.layer.shadowOpacity = 0;
+    [self.slotImageView.layer removeAllAnimations];
 }
 
 #pragma mark - Private Properties

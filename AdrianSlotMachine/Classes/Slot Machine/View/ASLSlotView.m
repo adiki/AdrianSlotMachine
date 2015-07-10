@@ -95,13 +95,12 @@
         return;
     }
 
-    void (^animations)() = ^{
-        [self setContentOffset:contentOffset animated:NO];
-    };
     
     if (itemNumber != self.targetItemNumber) {
         [UIView animateWithDuration:0.1
-                         animations:animations];
+                         animations:^{
+                             [self setContentOffset:contentOffset animated:NO];
+                         }];
         return;
     }
 
@@ -110,7 +109,9 @@
          usingSpringWithDamping:0.33
           initialSpringVelocity:10
                         options:UIViewAnimationOptionCurveLinear
-                     animations:animations
+                     animations:^{
+                         [self setContentOffset:contentOffset animated:NO];
+                     }
                      completion:^(BOOL finished) {
                          NSUInteger theSameBeginItemNumber = self.targetItemNumber % [ASLFruits fruitTypes].count;
                          theSameBeginItemNumber = theSameBeginItemNumber == 0 ? 3 : theSameBeginItemNumber;
@@ -123,6 +124,12 @@
     [self.timer invalidate];
     [self makeNeighboursFadedForItemNumber:self.currentItemNumber];
     [self setGlowForCurrentItemNumber];
+    [self rotateForCurrentItemNumber];
+}
+
+- (void)rotateForCurrentItemNumber {
+    ASLSlotCell *slotCell = (ASLSlotCell *) [self cellForRowAtIndexPath:[NSIndexPath indexPathForItem:self.currentItemNumber inSection:0]];
+    [slotCell rotateImage];
 }
 
 - (void)makeNeighboursFadedForItemNumber:(NSUInteger)itemNumber {

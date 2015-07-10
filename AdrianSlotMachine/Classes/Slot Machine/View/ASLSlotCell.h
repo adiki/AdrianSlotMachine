@@ -12,4 +12,6 @@ extern CGFloat const kSlotCellHeight;
 - (void)makeFadedAnimated:(BOOL)animated;
 
 - (void)setGlow;
+
+- (void)rotateImage;
 @end
