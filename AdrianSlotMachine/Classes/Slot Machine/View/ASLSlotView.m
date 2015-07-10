@@ -65,6 +65,7 @@
     self.currentItemNumber = itemNumber;
     [self scrollSlotToItemNumber:itemNumber animated:NO];
     [self makeNeighboursFadedForItemNumber:itemNumber];
+    [self setGlowForCurrentItemNumber];
 }
 
 - (void)spinSlotAnimatedToItemNumber:(NSUInteger)itemNumber {
@@ -121,6 +122,7 @@
 
     [self.timer invalidate];
     [self makeNeighboursFadedForItemNumber:self.currentItemNumber];
+    [self setGlowForCurrentItemNumber];
 }
 
 - (void)makeNeighboursFadedForItemNumber:(NSUInteger)itemNumber {
@@ -133,6 +135,11 @@
 - (CGFloat)offsetYForItemNumber:(NSUInteger)itemNumber {
     CGFloat halfOfSlotHeight = [self halfOfSlotHeight];
     return kSlotCellHeight * itemNumber + kSlotCellHeight / 2 - halfOfSlotHeight;
+}
+
+- (void)setGlowForCurrentItemNumber {
+    ASLSlotCell *slotCell = (ASLSlotCell *) [self cellForRowAtIndexPath:[NSIndexPath indexPathForItem:self.currentItemNumber inSection:0]];
+    [slotCell setGlow];
 }
 
 #pragma mark - Protocols

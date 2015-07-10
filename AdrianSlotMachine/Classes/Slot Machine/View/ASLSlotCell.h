@@ -11,4 +11,5 @@ extern CGFloat const kSlotCellHeight;
 - (void)configureWithImageName:(NSString *)imageName;
 - (void)makeFadedAnimated:(BOOL)animated;
 
+- (void)setGlow;
 @end

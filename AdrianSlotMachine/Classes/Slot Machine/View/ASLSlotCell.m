@@ -32,6 +32,12 @@ CGFloat const kSlotCellHeight = 75;
     }];
 }
 
+- (void)setGlow {
+    self.slotImageView.layer.shadowColor = [UIColor yellowColor].CGColor;
+    self.slotImageView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.slotImageView.layer.shadowOpacity = 0.75;
+}
+
 #pragma mark - IBActions
 #pragma mark - Overridden
 
@@ -50,6 +56,7 @@ CGFloat const kSlotCellHeight = 75;
 - (void)prepareForReuse {
     [super prepareForReuse];
     self.slotImageView.alpha = 1;
+    self.slotImageView.layer.shadowOpacity = 0;
 }
 
 #pragma mark - Private Properties
