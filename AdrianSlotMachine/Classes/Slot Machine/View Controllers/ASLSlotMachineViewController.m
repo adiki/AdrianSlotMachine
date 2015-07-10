@@ -97,12 +97,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - ASLSlotMachineHistoryViewControllerDelegate
+
 - (void)slotMachineHistoryViewControllerCloseButtonTapped:(ASLSlotMachineHistoryViewController *)slotMachineHistoryViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-#pragma mark - ASLSlotMachineHistoryViewControllerDelegate
 
 #pragma mark - Notifications
 
