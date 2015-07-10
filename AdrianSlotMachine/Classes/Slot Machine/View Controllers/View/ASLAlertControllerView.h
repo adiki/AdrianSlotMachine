@@ -5,9 +5,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class ASLAlertControllerView;
+
+@protocol ASLAlertControllerViewDelegate
+
+- (void)alertControllerViewConfirmButtonTapped:(ASLAlertControllerView *)alertControllerView;
+
+@end
 
 @interface ASLAlertControllerView : UIView
 
-- (instancetype)initWithWin:(BOOL)win;
+@property(nonatomic, weak) id <ASLAlertControllerViewDelegate> delegate;
+
+- (instancetype)initWithWin:(BOOL)win title:(NSAttributedString *)title image:(UIImage *)image;
 
 @end

@@ -7,19 +7,19 @@
 
 @implementation UIColor (ASLSlotMachine)
 
-+ (UIColor *)aslGrayColor {
++ (UIColor *)asl_GrayColor {
     return [self colorWithRedInt:234 greenInt:234 blueInt:234 alpha:1];
 }
 
-+ (UIColor *)aslVeryLightGrayColor {
++ (UIColor *)asl_VeryLightGrayColor {
     return [self colorWithRedInt:251 greenInt:251 blueInt:251 alpha:1];
 }
 
-+ (UIColor *)aslPinkColor {
++ (UIColor *)asl_PinkColor {
     return [self colorWithRedInt:220 greenInt:0 blueInt:95 alpha:1];
 }
 
-+ (UIColor *)aslTurquoiseColor {
++ (UIColor *)asl_TurquoiseColor {
     return [self colorWithRedInt:28 greenInt:206 blueInt:202 alpha:1];
 }
 

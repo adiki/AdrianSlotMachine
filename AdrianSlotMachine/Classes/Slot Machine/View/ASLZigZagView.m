@@ -29,7 +29,7 @@
     CGContextRef ctx = UIGraphicsGetCurrentContext();
 
     CGContextSetLineWidth(ctx, 1.0f / self.contentScaleFactor);
-    CGContextSetStrokeColorWithColor(ctx, [UIColor aslTurquoiseColor].CGColor);
+    CGContextSetStrokeColorWithColor(ctx, [UIColor asl_TurquoiseColor].CGColor);
     NSInteger squaresCount = (NSInteger) (CGRectGetWidth(rect) / CGRectGetHeight(rect));
     for (int i = 0; i < squaresCount; ++i) {
         CGContextBeginPath(ctx);

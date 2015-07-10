@@ -17,7 +17,7 @@
 
 - (UIColor *)triangleColor {
     if (_triangleColor == nil) {
-        _triangleColor = [UIColor aslPinkColor];
+        _triangleColor = [UIColor asl_PinkColor];
     }
     return _triangleColor;
 }

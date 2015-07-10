@@ -12,6 +12,7 @@
 @property(nonatomic, strong) UIView *centerContainer;
 @property(nonatomic, strong) ASLSlotMachineView *slotMachineView;
 @property(nonatomic, strong) UIButton *spinButton;
+@property(nonatomic, strong) UIButton *viewHistoryButton;
 
 @end
 
@@ -25,9 +26,11 @@
     [self.slotMachineView setupSlotMachine];
 }
 
-- (void)setSpinButtonEnabled:(BOOL)enabled {
+- (void)setButtonsEnabled:(BOOL)enabled {
     self.spinButton.enabled = enabled;
+    self.viewHistoryButton.enabled = enabled;
     self.spinButton.alpha = enabled ? 1.0f : 0.5f;
+    self.viewHistoryButton.alpha = enabled ? 1.0f : 0.5f;
 }
 
 - (void)spinSlotMachineWithResult:(NSArray *)result completion:(void (^)())completion {
@@ -44,7 +47,7 @@
         [self setupBackground];
         [self setupCenterContainer];
         [self setupSlotMachineViewWithSlotDataSource:slotDataSource];
-        [self setupSpinButton];
+        [self setupButtons];
         [self setupConstraints];
     }
 
@@ -56,7 +59,7 @@
 #pragma mark - Private Instance Methods
 
 - (void)setupBackground {
-    self.backgroundColor = [UIColor aslGrayColor];
+    self.backgroundColor = [UIColor asl_GrayColor];
 }
 
 - (void)setupCenterContainer {
@@ -71,25 +74,30 @@
     [_centerContainer addSubview:_slotMachineView];
 }
 
+- (void)setupButtons {
+    _spinButton = [self createAndAddButtonWithTitle:@"SPIN" sel:@selector(spinButtonTapped:)];
+    _viewHistoryButton = [self createAndAddButtonWithTitle:@"VIEW HISTORY" sel:@selector(viewHistoryButtonTapped:)];
+}
 
-- (void)setupSpinButton {
-    _spinButton = [[UIButton alloc] init];
-    _spinButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [_spinButton setTitle:@"SPIN" forState:UIControlStateNormal];
-    [_spinButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_spinButton setBackgroundColor:[UIColor aslTurquoiseColor]];
-    [_spinButton addTarget:self action:@selector(spinButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    _spinButton.titleLabel.font = [UIFont fontWithName:@"EuphemiaUCAS" size:29];
-    [_centerContainer addSubview:_spinButton];
+- (UIButton *)createAndAddButtonWithTitle:(NSString *)title sel:(SEL)sel {
+    UIButton *button = [[UIButton alloc] init];
+    button.translatesAutoresizingMaskIntoConstraints = NO;
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setBackgroundColor:[UIColor asl_TurquoiseColor]];
+    [button addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = [UIFont fontWithName:@"EuphemiaUCAS" size:27];
+    [_centerContainer addSubview:button];
+    return button;
 }
 
 - (void)setupConstraints {
-    NSDictionary *views = NSDictionaryOfVariableBindings(_centerContainer, _slotMachineView, _spinButton);
+    NSDictionary *views = NSDictionaryOfVariableBindings(_centerContainer, _slotMachineView, _spinButton, _viewHistoryButton);
     [_centerContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_slotMachineView(300)]|"
                                                                  options:NSLayoutFormatDirectionLeadingToTrailing
                                                                  metrics:nil
                                                                    views:views]];
-    [_centerContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_slotMachineView(150)]-[_spinButton]|"
+    [_centerContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_slotMachineView(150)]-8-[_spinButton]-8-[_viewHistoryButton]|"
                                                                  options:NSLayoutFormatAlignAllLeft | NSLayoutFormatAlignAllRight
                                                                  metrics:nil
                                                                    views:views]];
@@ -111,6 +119,10 @@
 
 - (void)spinButtonTapped:(UIButton *)spinButton {
     [self.delegate slotMachineControllerViewSpinButtonTapped:self];
+}
+
+- (void)viewHistoryButtonTapped:(UIButton *)viewHistoryButton {
+    [self.delegate slotMachineControllerViewViewHistoryButtonTapped:self];
 }
 
 #pragma mark - Protocols

@@ -25,7 +25,7 @@
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     ASLAlertViewController *alertViewController = (ASLAlertViewController *) [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    alertViewController.view.frame = [[transitionContext containerView] bounds];
+    alertViewController.view.frame = [[transitionContext containerView] frame];
     [transitionContext.containerView addSubview:alertViewController.view];
     [transitionContext completeTransition:YES];
 }

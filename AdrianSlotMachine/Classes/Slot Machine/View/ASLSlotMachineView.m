@@ -51,7 +51,14 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 }
 
 - (void)setupSlotMachine {
-    [self setupSlotsToInitialRandomItemNumbers];
+    if (self.firstSlot.contentOffset.y > 0) {
+        return;
+    }
+    NSMutableArray *itemNumbers = [@[@1, @2, @3] mutableCopy];
+    [itemNumbers asl_shuffle];
+    [self.firstSlot spinSlotToItemNumber:[itemNumbers[0] unsignedIntegerValue] animated:NO];
+    [self.secondSlot spinSlotToItemNumber:[itemNumbers[1] unsignedIntegerValue] animated:NO];
+    [self.thirdSlot spinSlotToItemNumber:[itemNumbers[2] unsignedIntegerValue] animated:NO];
 }
 
 - (void)spinSlotMachineWithResult:(NSArray *)result completion:(void (^)())completion {
@@ -73,10 +80,10 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
 - (void)setupSlotsContainer {
     _slotsContainer = [[UIView alloc] init];
     _slotsContainer.translatesAutoresizingMaskIntoConstraints = NO;
-    _slotsContainer.backgroundColor = [UIColor aslVeryLightGrayColor];
+    _slotsContainer.backgroundColor = [UIColor asl_VeryLightGrayColor];
     _slotsContainer.layer.cornerRadius = 12;
     _slotsContainer.layer.borderWidth = kSlotsContainerBorderWidth;
-    _slotsContainer.layer.borderColor = [UIColor aslTurquoiseColor].CGColor;
+    _slotsContainer.layer.borderColor = [UIColor asl_TurquoiseColor].CGColor;
     [self addSubview:_slotsContainer];
 }
 
@@ -173,14 +180,6 @@ CGFloat const kTriangleViewWidth = kTriangleViewHeight * 1.732f / 2;
                                                      attribute:NSLayoutAttributeCenterY
                                                     multiplier:1.0f
                                                       constant:0.0f]];
-}
-
-- (void)setupSlotsToInitialRandomItemNumbers {
-    NSMutableArray *itemNumbers = [@[@1, @2, @3] mutableCopy];
-    [itemNumbers shuffle];
-    [self.firstSlot spinSlotToItemNumber:[itemNumbers[0] unsignedIntegerValue] animated:NO];
-    [self.secondSlot spinSlotToItemNumber:[itemNumbers[1] unsignedIntegerValue] animated:NO];
-    [self.thirdSlot spinSlotToItemNumber:[itemNumbers[2] unsignedIntegerValue] animated:NO];
 }
 
 #pragma mark - ASLSlotViewDelegate

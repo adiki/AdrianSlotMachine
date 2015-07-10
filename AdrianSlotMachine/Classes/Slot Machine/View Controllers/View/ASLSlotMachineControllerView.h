@@ -10,6 +10,7 @@
 @protocol ASLSlotMachineControllerViewDelegate
 
 - (void)slotMachineControllerViewSpinButtonTapped:(ASLSlotMachineControllerView *)slotMachineControllerView;
+- (void)slotMachineControllerViewViewHistoryButtonTapped:(ASLSlotMachineControllerView *)slotMachineControllerView;
 
 @end
 
@@ -20,7 +21,7 @@
 - (instancetype)initWithSlotDataSource:(ASLSlotDataSource *)slotDataSource;
 
 - (void)setupSlotMachine;
-- (void)setSpinButtonEnabled:(BOOL)enabled;
+- (void)setButtonsEnabled:(BOOL)enabled;
 - (void)spinSlotMachineWithResult:(NSArray *)result completion:(void (^)())completion;
 
 @end

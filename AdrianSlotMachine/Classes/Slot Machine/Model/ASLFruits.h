@@ -16,5 +16,9 @@ typedef NS_ENUM(NSInteger, ASLFruitType) {
 
 + (NSArray *)fruitTypes;
 + (NSString *)imageNameForFruitType:(ASLFruitType)fruitType;
++ (NSArray *)resultFruitsForSlotItemNumbers:(NSArray *)array;
++ (BOOL)winForResultFruits:(NSArray *)resultFruits;
++ (NSAttributedString *)titleForResultFruits:(NSArray *)resultFruits;
++ (UIImage *)imageForResultFruits:(NSArray *)resultFruits;
 
 @end

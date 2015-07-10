@@ -12,7 +12,7 @@
 #pragma mark - Public Class Methods
 #pragma mark - Public Instance Methods
 
-- (void)shuffle {
+- (void)asl_shuffle {
     NSUInteger count = [self count];
     for (NSUInteger i = 0; i < arc4random_uniform(4) + 2; ++i) {
         for (NSUInteger j = 0; j < count; ++j) {

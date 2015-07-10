@@ -7,6 +7,6 @@
 
 @interface NSMutableArray (Shuffle)
 
-- (void)shuffle;
+- (void)asl_shuffle;
 
 @end

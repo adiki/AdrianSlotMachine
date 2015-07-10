@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		610022903B32D3336AC6DC1C /* ASLAlertTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 618AD170F8C027698DDF19B6 /* ASLAlertTransitioningDelegate.m */; };
+		610A142C5D517755907EF44D /* ASLSlotMachineHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A4E593DC12898F5B0FAE8F /* ASLSlotMachineHistoryViewController.m */; };
 		611154EE4CC1CE17AAD7678B /* ASLZigZagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 610172BCCDABD4284AF8738C /* ASLZigZagView.m */; };
 		6122B6F27BB4BC97B160D075 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CAA8B461C713BD421A1F7D /* Images.xcassets */; };
 		613145C33B0124F191EA86DE /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6176FB96065F83EF7696D92B /* NSMutableArray+Shuffle.m */; };
@@ -15,6 +16,7 @@
 		6142D010E2D0D16F5276219F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F106E02816EB179D396985 /* main.m */; };
 		614BF619218AD854F26EA101 /* ASLTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 614103F428D7113F0E7BA3E9 /* ASLTriangleView.m */; };
 		6159E6FA3528602C85110B38 /* ASLSlotMachineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E6584A05B6BA9CB1B0F87D /* ASLSlotMachineView.m */; };
+		616C6A55D9A91E44767CDAF5 /* ASLHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612AAC095AA8B5AB1C8F5C1A /* ASLHistoryCell.m */; };
 		617A8C1EED44B39791D59E65 /* ASLSlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6135EAA785D80CD8DFB75154 /* ASLSlotView.m */; };
 		617C37D02431E7C1855BB5FB /* ASLSlotMachineControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F14F8A73BCF997248F029F /* ASLSlotMachineControllerView.m */; };
 		617D070A9FF206C0B0126DDA /* UIColor+ASLSlotMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 619139243DA9CFFD4A22EECB /* UIColor+ASLSlotMachine.m */; };
@@ -27,6 +29,7 @@
 		61D52184D98429F6A49BFD52 /* ASLAlertTransitionPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C7A2F91F67F4B4E7DE2684 /* ASLAlertTransitionPresentController.m */; };
 		61E2C4617B5AE056D9DD2205 /* ASLSlotItemNumbersGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E3C9712C7914AB48B05E27 /* ASLSlotItemNumbersGenerator.m */; };
 		61EA4F21A76B6087C8CE83B4 /* ASLAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F193BFADE71CE32D0BC4F3 /* ASLAlertViewController.m */; };
+		61EAAD826A5F56A5A0F43977 /* ASLSlotMachineHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F23B5CBFE9385F47A39336 /* ASLSlotMachineHistoryView.m */; };
 		61F2A04B1C29EFB97C3CF2BE /* ASLSlotDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BD65E28F2CC94A184E77AA /* ASLSlotDataSource.m */; };
 		61F8C875B777A87521598632 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61F9FEA060946E15D0CCBCF4 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
@@ -53,6 +56,8 @@
 		611B59FA3B7C94A98B755426 /* ASLAlertControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLAlertControllerView.h; sourceTree = "<group>"; };
 		611DA9120CDAAF333810E44C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		61265A5FE641D4FBBB8BFE09 /* ASLSlotMachineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineView.h; sourceTree = "<group>"; };
+		61288317C711368D93CE0506 /* ASLHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLHistoryCell.h; sourceTree = "<group>"; };
+		612AAC095AA8B5AB1C8F5C1A /* ASLHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLHistoryCell.m; sourceTree = "<group>"; };
 		61330454E57C32DB9DB27E38 /* ASLSlotDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotDataSource.h; sourceTree = "<group>"; };
 		613553139273DC6D2650E572 /* ASLAlertTransitionDismissController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLAlertTransitionDismissController.h; sourceTree = "<group>"; };
 		6135D18BDEB388FE6B68CB7E /* ASLFruits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLFruits.h; sourceTree = "<group>"; };
@@ -61,13 +66,16 @@
 		614544D9B0E1786376C4831A /* ASLSlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotView.h; sourceTree = "<group>"; };
 		614FB0BF7C3982CFEC194497 /* ASLAlertTransitionDismissController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLAlertTransitionDismissController.m; sourceTree = "<group>"; };
 		61683B13A0DF3180AE3D15DC /* UIColor+ASLSlotMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ASLSlotMachine.h"; sourceTree = "<group>"; };
+		617583ADDC9BE85D5C7F931F /* ASLSlotMachineHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineHistoryViewController.h; sourceTree = "<group>"; };
 		6176FB96065F83EF7696D92B /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
 		618258041B73CF883488245E /* ASLAlertTransitionPresentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLAlertTransitionPresentController.h; sourceTree = "<group>"; };
 		6183F520D8EFB53128248EEA /* ASLSlotMachineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineViewController.m; sourceTree = "<group>"; };
 		618AD170F8C027698DDF19B6 /* ASLAlertTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLAlertTransitioningDelegate.m; sourceTree = "<group>"; };
 		619139243DA9CFFD4A22EECB /* UIColor+ASLSlotMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ASLSlotMachine.m"; sourceTree = "<group>"; };
+		6197F3276E1C1C95F9B7A6AD /* ASLSlotMachineHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineHistoryView.h; sourceTree = "<group>"; };
 		619B270F42A8BCB19F0F53C4 /* AdrianSlotMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdrianSlotMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A2D0628486BD4CD455DF03 /* ASLSlotItemNumbersGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotItemNumbersGenerator.h; sourceTree = "<group>"; };
+		61A4E593DC12898F5B0FAE8F /* ASLSlotMachineHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineHistoryViewController.m; sourceTree = "<group>"; };
 		61A612BB49E12AD7BEA95E89 /* AdrianSlotMachineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdrianSlotMachineTests.m; sourceTree = "<group>"; };
 		61A6520F05267BDF313B8C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		61BC99F0FF470D1E0159A287 /* ASLAlertTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLAlertTransitioningDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +93,7 @@
 		61F106E02816EB179D396985 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61F14F8A73BCF997248F029F /* ASLSlotMachineControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineControllerView.m; sourceTree = "<group>"; };
 		61F193BFADE71CE32D0BC4F3 /* ASLAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLAlertViewController.m; sourceTree = "<group>"; };
+		61F23B5CBFE9385F47A39336 /* ASLSlotMachineHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLSlotMachineHistoryView.m; sourceTree = "<group>"; };
 		61F4702CA3CF934E64D4FBDD /* ASLSlotMachineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLSlotMachineViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +122,10 @@
 				61F14F8A73BCF997248F029F /* ASLSlotMachineControllerView.m */,
 				61021C38E1161E1AB22DEFC1 /* ASLAlertControllerView.m */,
 				611B59FA3B7C94A98B755426 /* ASLAlertControllerView.h */,
+				61F23B5CBFE9385F47A39336 /* ASLSlotMachineHistoryView.m */,
+				6197F3276E1C1C95F9B7A6AD /* ASLSlotMachineHistoryView.h */,
+				612AAC095AA8B5AB1C8F5C1A /* ASLHistoryCell.m */,
+				61288317C711368D93CE0506 /* ASLHistoryCell.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,6 +248,8 @@
 				61F193BFADE71CE32D0BC4F3 /* ASLAlertViewController.m */,
 				6116AD226CA57CE7A004801E /* ASLAlertViewController.h */,
 				6173DEE57CE0AF73E72396DB /* Transitions */,
+				61A4E593DC12898F5B0FAE8F /* ASLSlotMachineHistoryViewController.m */,
+				617583ADDC9BE85D5C7F931F /* ASLSlotMachineHistoryViewController.h */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -383,6 +398,9 @@
 				61D52184D98429F6A49BFD52 /* ASLAlertTransitionPresentController.m in Sources */,
 				6192C6B6ED50BB557F24086D /* ASLAlertTransitionDismissController.m in Sources */,
 				611154EE4CC1CE17AAD7678B /* ASLZigZagView.m in Sources */,
+				610A142C5D517755907EF44D /* ASLSlotMachineHistoryViewController.m in Sources */,
+				61EAAD826A5F56A5A0F43977 /* ASLSlotMachineHistoryView.m in Sources */,
+				616C6A55D9A91E44767CDAF5 /* ASLHistoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

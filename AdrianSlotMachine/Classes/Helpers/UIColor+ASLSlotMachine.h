@@ -6,9 +6,9 @@
 
 @interface UIColor (ASLSlotMachine)
 
-+ (UIColor *)aslGrayColor;
-+ (UIColor *)aslVeryLightGrayColor;
-+ (UIColor *)aslPinkColor;
-+ (UIColor *)aslTurquoiseColor;
++ (UIColor *)asl_GrayColor;
++ (UIColor *)asl_VeryLightGrayColor;
++ (UIColor *)asl_PinkColor;
++ (UIColor *)asl_TurquoiseColor;
 
 @end

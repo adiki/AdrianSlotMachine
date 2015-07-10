@@ -63,6 +63,7 @@ CGFloat const kSlotCellHeight = 75;
 - (void)setupImageView {
     _slotImageView = [[UIImageView alloc] init];
     _slotImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    _slotImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.contentView addSubview:_slotImageView];
 }
 
