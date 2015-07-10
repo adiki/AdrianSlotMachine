@@ -8,14 +8,12 @@
 #import "ASLSlotItemNumbersGenerator.h"
 #import "ASLFruits.h"
 #import "ASLAlertViewController.h"
-#import "ASLAlertTransitioningDelegate.h"
 #import "ASLSlotMachineHistoryViewController.h"
 
 @interface ASLSlotMachineViewController () <ASLSlotMachineControllerViewDelegate, ASLAlertViewControllerDelegate, ASLSlotMachineHistoryViewControllerDelegate>
 
 @property(nonatomic, strong) ASLSlotItemNumbersGenerator *slotItemNumbersGenerator;
 @property(nonatomic, strong) ASLSlotDataSource *slotDataSource;
-@property(nonatomic, strong) ASLAlertTransitioningDelegate *alertTransitioningDelegate;
 @property(nonatomic, strong) NSMutableArray *fruitsHistory;
 
 @end
@@ -55,14 +53,6 @@
 }
 
 #pragma mark - Private Properties
-
-- (ASLAlertTransitioningDelegate *)alertTransitioningDelegate {
-    if (_alertTransitioningDelegate == nil) {
-        _alertTransitioningDelegate = [[ASLAlertTransitioningDelegate alloc] init];
-    }
-    return _alertTransitioningDelegate;
-}
-
 #pragma mark - Private Class Methods
 #pragma mark - Private Instance Methods
 
@@ -76,8 +66,7 @@
     UIImage *image = [ASLFruits imageForResultFruits:resultFruits];
     ASLAlertViewController *alertViewController = [[ASLAlertViewController alloc] initWithWin:win title:title image:image];
     alertViewController.delegate = self;
-    alertViewController.modalPresentationStyle = UIModalPresentationCustom;
-    alertViewController.transitioningDelegate = self.alertTransitioningDelegate;
+    alertViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self presentViewController:alertViewController animated:YES completion:nil];
 }
 
