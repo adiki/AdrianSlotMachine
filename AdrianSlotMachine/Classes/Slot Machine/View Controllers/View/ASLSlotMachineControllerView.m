@@ -48,7 +48,7 @@
         [self setupCenterContainer];
         [self setupSlotMachineViewWithSlotDataSource:slotDataSource];
         [self setupButtons];
-        [self setupConstraints];
+//        [self setupConstraints];
     }
 
     return self;
@@ -93,13 +93,17 @@
 
 - (void)setupConstraints {
     NSDictionary *views = NSDictionaryOfVariableBindings(_centerContainer, _slotMachineView, _spinButton, _viewHistoryButton);
-    [_centerContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_slotMachineView(300)]|"
+    NSDictionary *metrics = @{
+        @"slotMachineWidth": self.traitCollection.userInterfaceIdiom == UIUserInterfaceIdiomPhone ? @300 : @600,
+    };
+    [_centerContainer removeConstraints:_centerContainer.constraints];
+    [_centerContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_slotMachineView(slotMachineWidth)]|"
                                                                  options:NSLayoutFormatDirectionLeadingToTrailing
-                                                                 metrics:nil
+                                                                 metrics:metrics
                                                                    views:views]];
     [_centerContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_slotMachineView(150)]-8-[_spinButton]-8-[_viewHistoryButton]|"
                                                                  options:NSLayoutFormatAlignAllLeft | NSLayoutFormatAlignAllRight
-                                                                 metrics:nil
+                                                                 metrics:metrics
                                                                    views:views]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:_centerContainer
                                                      attribute:NSLayoutAttributeCenterX
@@ -123,6 +127,10 @@
 
 - (void)viewHistoryButtonTapped:(UIButton *)viewHistoryButton {
     [self.delegate slotMachineControllerViewViewHistoryButtonTapped:self];
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [self setupConstraints];
 }
 
 #pragma mark - Protocols
